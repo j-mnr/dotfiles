@@ -51,11 +51,11 @@ mkfs.ext4 /dev/ROOT_PARTITION
 
 ### Configure the partitions
 
-1. Swap
+#### 1. Swap
 
-`swapon /dev/SWAP_PARTITION`
+  `swapon /dev/SWAP_PARTITION`
 
-1. Root
+#### 2. Root
 
 ```sh
 mount /dev/ROOT_PARTITION /mnt
@@ -90,7 +90,7 @@ usermod -aG wheel,audio,video,optical,storage CHOOSE_YOUR_USERNAME
 EDITOR=vim visudo # uncomment %wheel ALL=(ALL) ALL
 ```
 
-1. Boot/EFI
+#### 3. Boot/EFI
 
 ```sh
 pacman -S grub efibootmgr # **AND** either amd-ucode or intel-ucode
