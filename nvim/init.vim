@@ -5,6 +5,7 @@ filetype indent on
 call plug#begin("~/.local/share/nvim/plugged")
 Plug 'tpope/vim-surround'
 Plug 'folke/tokyonight.nvim'
+Plug 'tanvirtin/monokai.nvim'
 Plug 'nvim-treesitter/nvim-treesitter',
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -16,7 +17,7 @@ call plug#end()
 let g:rainbow_active = 1
 set termguicolors
 let g:tokyonight_style = "night"
-colorscheme tokyonight
+colorscheme monokai
 
 set virtualedit=all " Virtual edit best edit
 " autocommand to save on losing focus
@@ -26,12 +27,14 @@ set gdefault " turns on [g] flag for :substitute
 set autowriteall " It does as it says
 set autoread " automatically reload files upon change outside editor
 set list " shows the invisible characters
-set listchars=space:·,tab:>\ ,trail:-
+set listchars=space:·,tab:>\ ,trail:-,extends:>,precedes:<
 set numberwidth=1 " spacing from the line number
 set splitright " new windows appear to the right
 set splitbelow " new windows apper at bottom
 set showcmd " BEST!!! shows what you type for cmd
-set scrolloff=18 " keeps some lines from top & bottom
+set scrolloff=999 " Center vertically
+set sidescroll=1 " No jarring jump when nowrap is set
+set sidescrolloff=999 " Center horizontally
 set cursorline " puts a line under where you are
 set wildmenu " :TAB to pull up wildmenu
 set wildmode=list:longest,full " gives you what you want
