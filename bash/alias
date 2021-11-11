@@ -14,7 +14,7 @@ alias xc='xsel -ib'
 alias xp='xsel -ob'
 
 # git gud
-alias lazy='git add -A && git commit --allow-empty-message -C HEAD && git push '
+alias lazy='git add -A && git commit --allow-empty-message -C HEAD && git push'
 alias ga='git add .'
 alias gd='git diff'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
