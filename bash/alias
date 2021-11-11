@@ -1,0 +1,28 @@
+#!/bin/sh
+
+alias p='pacman --color=auto'
+alias sp='sudo pacman -S --noconfirm'
+
+alias cat='cat -s'
+alias diff='diff --color=auto -u'
+alias grep='grep --color=auto -E'
+alias ls='ls -v --color=auto'
+alias ll='ls -lAhF'
+alias rd='rm -rf'
+alias ssn='shutdown now'
+alias xc='xsel -ib'
+alias xp='xsel -ob'
+
+# git gud
+alias lazy='git add -A && git commit --allow-empty-message -C HEAD && git push '
+alias ga='git add .'
+alias gd='git diff'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gp='git push'
+alias gpl='git pull'
+alias gs='git status'
+
+cht() { eval "curl cht.sh/$1"; }
+mkcd() { eval "mkdir $1 && cd $1"; }
+yt() { eval "mpv --ytdl-format=best[height=$1] --gapless-audio=yes $(xp)"; }
+

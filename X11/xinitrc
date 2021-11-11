@@ -1,0 +1,2 @@
+# just add this to end of /etc/X11/xinit/xinitrc
+# exec i3

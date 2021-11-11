@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -L "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+[ "$(fgconsole 2>/dev/null)" -eq 1 ] && exec startx -- vt1
+

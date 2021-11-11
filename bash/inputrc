@@ -1,0 +1,22 @@
+set editing-mode vi
+
+set blink-matching-paren On
+set colored-completion-prefix On
+set colored-stats On
+set menu-complete-display-prefix On
+set print-completions-horizontally On
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+set skip-completed-text On
+set visible-stats On
+
+$if mode=vi
+  set keymap vi-insert
+  "jj": vi-movement-mode
+  set keymap vi-command
+  "ciw": "bcw"
+  "ci(": "T(ct)"
+  "ci[": "T[ct]"
+  "ci{": "T{ct}"
+$endif
+
