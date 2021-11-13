@@ -4,20 +4,17 @@ filetype indent on
 
 call plug#begin("~/.local/share/nvim/plugged")
 Plug 'tpope/vim-surround'
-Plug 'folke/tokyonight.nvim'
-Plug 'tanvirtin/monokai.nvim'
+Plug 'ray-x/aurora'
 Plug 'nvim-treesitter/nvim-treesitter',
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-"Plug 'sheerun/vim-polyglot'
 Plug 'frazrepo/vim-rainbow'
 call plug#end()
 
 let g:rainbow_active = 1
 set termguicolors
-let g:tokyonight_style = "night"
-colorscheme monokai
+colorscheme aurora
 
 set virtualedit=all " Virtual edit best edit
 " autocommand to save on losing focus
