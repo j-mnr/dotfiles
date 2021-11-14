@@ -1,0 +1,42 @@
+{
+	"name": "Vimium C",
+	"@time": "11/13/2021, 9:52:40 PM",
+	"time": 1636858360895,
+	"environment": {
+		"extension": "1.94.0",
+		"platform": "linux",
+		"chrome": "95"
+	},
+	"autoReduceMotion": true,
+	"exclusionRules": [],
+	"grabBackFocus": true,
+	"ignoreCapsLock": 2,
+	"keyMappings": [
+		"#!no-check",
+		"mapkey Z <esc>",
+		""
+	],
+	"mapModifier": 2,
+	"searchEngines": [
+		"d|ddg|duckduckgo: https://duckduckgo.com/?q=%s DuckDuckGo",
+		"",
+		"y|yt: https://www.youtube.com/results?search_query=%s \\",
+		"  blank=https://www.youtube.com/ YouTube",
+		"",
+		"az|amazon: https://www.amazon.com/s/?field-keywords=%s \\",
+		"  blank=https://www.amazon.com/ Amazon",
+		"",
+		"gh|github: https://github.com/search?q=$s \\",
+		"  blank=https://github.com/ GitHub Repo",
+		"js\\:|Js: javascript:\\ $S; JavaScript",
+		""
+	],
+	"searchUrl": "https://duckduckgo.com/?q=$s DuckDuckGo",
+	"vomnibarOptions": {
+		"maxMatches": 10,
+		"queryInterval": 333,
+		"sizes": "77,3,44,0.8",
+		"styles": "dark",
+		"actions": ""
+	}
+}
