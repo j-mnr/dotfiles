@@ -116,7 +116,7 @@ mv dotfiles .config && cd .config/arch
 xargs pacman -S --needed --noconfirm < pac
 git clone https://aur.archlinux.org/yay-git
 makepkg -is # --install --syncdeps
-yay -S < aur
+xargs yay -S --needed --noconfirm < aur
 ```
 
 ### System configurations
@@ -126,16 +126,9 @@ Look into /etc/xdg/picom.conf, /etc/X11/xinit/xinitrc
 ### Neovim
 
 ```sh
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
---create-dirs \
-https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim -c "PlugInstall | qa"
-nvim -c "CocInstall -sync coc-css coc-pyright coc-html coc-emmet coc-tag \
-coc-omni coc-emoji coc-git coc-yaml coc-tsserver coc-prettier \
-coc-java coc-markmap | qa" && nvim -c "CocInstall -sync coc-markdownlint \
-coc-lua coc-java-lombok coc-gitignore coc-github coc-fzf-preview coc-cmake \
-coc-clangd coc-angular coc-vetur coc-json | qa" && nvim -c "TSInstall all" &&
-nvim -c CocUpdate
+nvim -c "CocInstall -sync coc-css coc-pyright coc-html coc-emmet coc-tag coc-omni coc-emoji coc-git coc-yaml coc-tsserver coc-prettier coc-java coc-markmap | qa" && nvim -c "CocInstall -sync coc-markdownlint coc-lua coc-java-lombok coc-gitignore coc-github coc-fzf-preview coc-cmake coc-clangd coc-angular coc-vetur coc-json | qa" && nvim -c "TSInstall all" && nvim -c CocUpdate
 ```
 
 ### Readings

@@ -8,6 +8,7 @@ bash-bats
 bash-completion
 binutils
 bison
+clang
 docker
 efibootmgr
 fakeroot
