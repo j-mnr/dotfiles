@@ -69,3 +69,17 @@ function Eatchar(pattern)
   return (char =~ a:pattern) ? '' : char
 endfunction
 
+function ToggleComment() range abort
+  " TODO implement this for all file types
+  let ft=&filetype
+  if ft == "vim" || ft == "python" || ft == "bash"
+    return
+  endif
+  if getline(".") =~ '^\/\/'
+    execute ":" . a:firstline . "," . a:lastline . 's/^\/\/ \(.*\)$/\1/'
+  else
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\)$/\/\/ \1/'
+  endif
+endfunction
+
+vmap <Leader><Leader> :call ToggleComment()<CR>

@@ -17,6 +17,7 @@ alias xp='xsel -ob'
 # git gud
 lazy() { eval "git add -A && git commit --allow-empty-message --date='$(date)' -C HEAD && git push"; }
 alias ga='git add .'
+alias gac='ga && git commit -m'
 alias gcl='git clone'
 alias gco='git checkout'
 alias gd='git diff'
