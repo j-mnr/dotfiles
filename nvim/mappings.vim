@@ -67,5 +67,6 @@ nnoremap <Leader>\ :vsp<CR>
 " FZF
 nnoremap <Leader>p :Files<CR>
 " Prettier
-nnoremap <Leader>gq :Format<CR>
+nnoremap <Leader>gq :Format<CR>:silent OR<CR>
 
+iabbrev pln fmt.Println()<Left><C-r>=Eatchar('\s')<CR>
