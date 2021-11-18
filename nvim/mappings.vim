@@ -22,7 +22,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Leader>nl o<Esc>
 nnoremap <Leader>nL O<Esc>
-nnoremap <Leader>ra :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>ra :%s/\<\(<C-r><C-w>\)\>/
 nnoremap U <C-r>
 nnoremap <Leader>v <C-v>
 nnoremap <Leader>b :Buffers<CR>
