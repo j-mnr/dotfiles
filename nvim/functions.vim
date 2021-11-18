@@ -75,10 +75,15 @@ function ToggleComment() range abort
   if ft == "vim" || ft == "python" || ft == "bash"
     return
   endif
-  if getline(".") =~ '^\/\/'
-    execute ":" . a:firstline . "," . a:lastline . 's/^\/\/ \(.*\)$/\1/'
+  if getline(".") =~ '^\%(\s*\)\/\/'
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(\s*\)\/\/ \(.*\)$/\1\2/'
   else
-    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\)$/\/\/ \1/'
+    call search('\w')
+    let [_, _, c, _] = getpos('.')
+    if l:c == 2
+      let c = 1
+    endif
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\%' . l:c . 'c\)\(.*\)$/\1\/\/ \2/'
   endif
 endfunction
 
