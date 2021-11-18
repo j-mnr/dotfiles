@@ -79,8 +79,9 @@ function ToggleComment() range abort
     execute ":" . a:firstline . "," . a:lastline . 's/^\(\s*\)\/\/ \(.*\)$/\1\2/'
   else
     call search('\w')
+    let ch = getline(".")[col(".")-2]
     let [_, _, c, _] = getpos('.')
-    if l:c == 2
+    if l:c == 2 && l:ch !=# "	"
       let c = 1
     endif
     execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\%' . l:c . 'c\)\(.*\)$/\1\/\/ \2/'
