@@ -72,11 +72,13 @@ endfunction
 function ToggleComment() range abort
   " TODO implement this for all file types
   let ft=&filetype
-  if ft == "vim" || ft == "python" || ft == "bash"
-    return
+  let cmt = '\/\/'
+  if ft == "python" || ft == "sh"
+    let cmt = '#'
   endif
-  if getline(".") =~ '^\%(\s*\)\/\/'
-    execute ":" . a:firstline . "," . a:lastline . 's/^\(\s*\)\/\/ \(.*\)$/\1\2/'
+
+  if getline(".") =~ '^\%(\s*\)' . cmt
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(\s*\)' . l:cmt . ' \(.*\)$/\1\2/'
   else
     call search('\w')
     let ch = getline(".")[col(".")-2]
@@ -84,7 +86,7 @@ function ToggleComment() range abort
     if l:c == 2 && l:ch !=# "	"
       let c = 1
     endif
-    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\%' . l:c . 'c\)\(.*\)$/\1\/\/ \2/'
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\%' . l:c . 'c\)\(.*\)$/\1' . l:cmt . ' \2/'
   endif
 endfunction
 

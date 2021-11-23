@@ -4,7 +4,7 @@
 	name = Jay Monari
 	email = 93833532+JayMonari@users.noreply.github.com
 [alias]
-	a = add .
+	a = add
 	aa = add -A
 	b = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 	bD = branch -D
