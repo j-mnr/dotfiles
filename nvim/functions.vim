@@ -43,7 +43,17 @@ function SnakeCase() range abort
 endfunction
 
 function GoToJson() range abort
-  execute a:firstline . ',' . a:lastline . 's/\v(.*(<\u\w+).*)/\1 `json:"\l\2"`'
+  " TODO Make this work for values larger than two aka `ThreeTimesField int`
+  let currline = a:firstline
+  while currline <= a:lastline
+    if getline(currline) =~# '\v(.*(<\u+>).*)'
+      execute currline . 's/\v(.*(<\u+>).*)/\1 `json:"\L\2"`/e'
+    else
+      execute currline . 's/\v(.*(<\u\w+).*)/\1 `json:"\l\2"`/e'
+    endif
+    execute currline . 's/\v(`json:"\l+)(\u+)(.*)/\1_\L\2\3/e'
+    let currline += 1
+  endwhile
 endfunction
 
 " TODO omitempty
