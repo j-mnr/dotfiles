@@ -42,14 +42,34 @@ function SnakeCase() range abort
   execute a:firstline . ',' . a:lastline . 's/\(\l\w\+\)\@<=\(\u\)/_\l\2'
 endfunction
 
-function ToGoJson() range abort
-  let json_property='"\(\w\+\)"'
-  let go_json='`json:"\1"`'
-  echo a:firstline . ',' . a:lastline
-  execute a:firstline . ',' . a:lastline . 's/' . l:json_property . ':/\u\1 string ' . l:go_json . '/'
+function GoToJson() range abort
+  execute a:firstline . ',' . a:lastline . 's/\v(.*(<\u\w+).*)/\1 `json:"\l\2"`'
 endfunction
 
-function JsonToGo()
+" TODO omitempty
+function JsonToGo() range abort
+  let json_property='"\(\w\+\)"'
+  let go_json='`json:"\1"`'
+  let lineN = a:firstline
+  while lineN <= a:lastline
+    let curr_line = getline(lineN)
+    if curr_line =~# '",\?$'
+      try
+        execute lineN . 's/' . json_property . ':.*/\u\1 string ' . go_json . '/'
+      catch
+      endtry
+    elseif curr_line =~# '[$'
+      " TODO integrate this '\[\_.\{-}\],\?'
+      " TODO eats up too many lines, need to go forward until find ]
+      execute lineN . 's/' . json_property . ':.*\[\_.\{-}\],\?/\u\1 []struct ' . go_json . '/'
+      echo 'array'
+    elseif curr_line =~# '\(true\|false\)$'
+      echo 'boolean'
+    elseif curr_line =~# '\d$'
+      echo 'number'
+    endif
+    let lineN += 1
+  endwhile
 endfunction
 
 function Eatchar(pattern)
@@ -78,7 +98,8 @@ function ToggleComment() range abort
   endif
 endfunction
 
+vmap <Leader>jg :call JsonToGo()<CR>
 vmap <Leader>cc :call CamelCase()<CR>
 vmap <Leader>sc :call SnakeCase()<CR>
-vmap <Leader>gj :call ToGoJson()<CR>
+vmap <Leader>gj :call GoToJson()<CR>
 vmap <Leader><Leader> :call ToggleComment()<CR>
