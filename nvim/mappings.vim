@@ -17,6 +17,8 @@ inoremap <silent>] <C-r>=Skip_closing(']')<CR>
 " Squirrely Braces
 inoremap { {}<Left>
 inoremap <silent>} <C-r>=Skip_closing('}')<CR>
+" -- INSERT --
+inoremap \\ <C-o>
 " -- NORMAL --
 nnoremap j gj
 nnoremap k gk
@@ -70,3 +72,4 @@ nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>gq :Format<CR>:silent OR<CR>
 
 iabbrev pln fmt.Println()<Left><C-r>=Eatchar('\s')<CR>
+iabbrev pf fmt.Printf()<Left><C-r>=Eatchar('\s')<CR>

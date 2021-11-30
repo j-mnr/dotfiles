@@ -34,34 +34,22 @@ function! s:getline()
   return [before, after]
 endfunction
 
-command! -range=% Camelcase call Lumpy(<count>)
-command! -range=% Snakecase call Slithers(<count>)
-command! -range=% GoJson call ToGoJson(<count>)
-
-function! Lumpy(range) abort
-  if a:range == -1
-    execute "%s/\\l\\@<=_\\([a-z]\\)/\\u\\1/"
-  else
-    execute "'<,'>s/\\l\\@<=_\\([a-z]\\)/\\u\\1/"
-  endif
+function CamelCase() range abort
+  execute a:firstline . ',' . a:lastline . 's/\l\@<=_\([a-z]\)/\u\1/'
 endfunction
 
-function! Slithers(range) abort
-  if a:range == -1
-    execute "%s/\\(\\l\\@<=[A-Z]\\)/_\\l\\1/"
-  else
-    execute "'<,'>s/\\(\\l\\@<=[A-Z]\\)/_\\l\\1/"
-  endif
+function SnakeCase() range abort
+  execute a:firstline . ',' . a:lastline . 's/\(\l\w\+\)\@<=\(\u\)/_\l\2'
 endfunction
 
-function! ToGoJson(range) abort
+function ToGoJson() range abort
   let json_property='"\(\w\+\)"'
   let go_json='`json:"\1"`'
-  if a:range == -1
-    execute "%s/" . json_property . ":/\\u\\1 " . go_json . "/"
-  else
-    execute "'<,'>s/".json_property.":/\\u\\1 string " . go_json . "/"
-  endif
+  echo a:firstline . ',' . a:lastline
+  execute a:firstline . ',' . a:lastline . 's/' . l:json_property . ':/\u\1 string ' . l:go_json . '/'
+endfunction
+
+function JsonToGo()
 endfunction
 
 function Eatchar(pattern)
@@ -90,4 +78,7 @@ function ToggleComment() range abort
   endif
 endfunction
 
+vmap <Leader>cc :call CamelCase()<CR>
+vmap <Leader>sc :call SnakeCase()<CR>
+vmap <Leader>gj :call ToGoJson()<CR>
 vmap <Leader><Leader> :call ToggleComment()<CR>
