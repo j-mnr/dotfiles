@@ -5,15 +5,21 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+export PATH="$PATH:$HOME/.local/bin"
+
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+
+export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$HOME/.local/bin"
+
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/rc"
 
 export LC_ALL=en_US.UTF-8
 export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
+
 HISTCONTROL=ignoreboth
 unset HISTFILE
-
 export LESSHISTFILE=/dev/null
 
 export MANPAGER='nvim +Man!'

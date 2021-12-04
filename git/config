@@ -9,6 +9,7 @@
 	b = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 	bD = branch -D
 	c = commit -m
+  cane = commit --amend --no-edit
 	co = checkout
 	cl = clone
 	d = diff
