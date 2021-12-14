@@ -71,5 +71,6 @@ nnoremap <Leader>p :Files<CR>
 " Prettier
 nnoremap <Leader>gq :Format<CR>:silent OR<CR>
 
-iabbrev pln fmt.Println()<Left><C-r>=Eatchar('\s')<CR>
-iabbrev pf fmt.Printf()<Left><C-r>=Eatchar('\s')<CR>
+" -- ALIASES --
+iabbrev pln fmt.Println("")<Left><Left><C-r>=Eatchar('\s')<CR>
+iabbrev pf fmt.Printf("")<Left><Left><C-r>=Eatchar('\s')<CR>
