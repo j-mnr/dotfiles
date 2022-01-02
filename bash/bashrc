@@ -38,6 +38,7 @@ PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
 . "$XDG_CONFIG_HOME/bash/alias"
 
 ll
+task list
 # journalctl -b -p warning
 # :w !sudo tee %
 
