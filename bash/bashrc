@@ -36,6 +36,7 @@ u_purple='\[\e[4;35m\]'
 PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
 
 . "$XDG_CONFIG_HOME/bash/alias"
+. "$XDG_CONFIG_HOME/bash/.secret"
 
 ll
 task list

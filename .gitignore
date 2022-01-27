@@ -9,3 +9,4 @@ pulse/
 ssh/
 QtProject.conf
 libreoffice/
+**/.secret

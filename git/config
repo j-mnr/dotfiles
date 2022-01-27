@@ -4,12 +4,15 @@
 	name = Jay Monari
 	email = 93833532+JayMonari@users.noreply.github.com
 [alias]
-	a = add
+  a = add
+	ah = add .
 	aa = add -A
 	b = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 	bD = branch -D
 	c = commit -m
-  cane = commit --amend --no-edit
+  ca = commit --amend
+	caem = commit --allow-empty-message -C HEAD
+	cane = commit --amend --no-edit
 	co = checkout
 	cl = clone
 	d = diff
@@ -17,4 +20,4 @@
 	p = push
 	pl = pull
 	s = status --short --branch
-	unstage = restore --staged
+	unstage = restore --staged .
