@@ -1,5 +1,14 @@
 let mapleader = " "
 " -- GOD TIER --
+nnoremap <Leader>d <C-d>
+nnoremap <Leader>u <C-u>
+cmap <Leader>reg <C-r>
+xnoremap <silent> . :normal .<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+    echo "@".getcmdline()
+    execute ":'<,'>normal @" . nr2char(getchar())
+endfunction
 inoremap jj <Esc>l
 nnoremap Y y$
 nnoremap n nzzzv
@@ -29,6 +38,7 @@ nnoremap U <C-r>
 nnoremap <Leader>v <C-v>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>e :Lex<CR>
+nnoremap <Leader>q :copen<CR>
 nnoremap <Leader>[ :cnext<CR>
 nnoremap <Leader>] :cprev<CR>
 nnoremap <Leader>/ :noh<CR>
@@ -74,3 +84,4 @@ nnoremap <Leader>gq :Format<CR>:silent OR<CR>
 " -- ALIASES --
 iabbrev pln fmt.Println("")<Left><Left><C-r>=Eatchar('\s')<CR>
 iabbrev pf fmt.Printf("")<Left><Left><C-r>=Eatchar('\s')<CR>
+iabbrev clg console.log()<Left><C-r>=Eatchar('\s')<CR>

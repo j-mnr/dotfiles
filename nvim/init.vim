@@ -1,8 +1,36 @@
-set nocompatible " Don't try to be Vi compatible
+" Bare Necessities
+set nocompatible
+syntax enable
 filetype plugin on
 filetype indent on
 
-call plug#begin("~/.local/share/nvim/plugged")
+" use :find to act as fzf
+set path+=** " Search all subdirs and -r
+set wildmenu " :TAB to pull up wildmenu
+set wildmode=list:longest,full " gives you what you want
+set wildignore=**/node_modules/** " fuck you node modules
+
+" File Explorer netrw |netrw-browse-maps|
+let g:netrw_banner=0 " disable banner
+let g:netrw_winsize=20 " don't take up entire screen
+let g:netrw_liststyle=3 " tree view best view
+let g:netrw_browse_split=4 " open in prior window
+let g:netrw_altv=1 " open splits to the right
+let g:netrw_list_hide=netrw_gitignore#Hide() " |netrw-gitignore|
+" hides dotfiles flet g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
+" By default netrw leaves unmoded buffs open. This deletes them.
+autocmd FileType netrw setl bufhidden=delete " or use :qa!
+
+autocmd FileType go set noexpandtab " Go I love you but..... >:(
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo ' . site_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+let data_dir = has('nvim') ? stdpath('data') : '~/.vim'
+call plug#begin(data_dir . "/plugged")
 Plug 'tpope/vim-surround'
 Plug 'ray-x/aurora'
 Plug 'nvim-treesitter/nvim-treesitter',
@@ -33,9 +61,6 @@ set scrolloff=999 " Center vertically
 set sidescroll=1 " No jarring jump when nowrap is set
 set sidescrolloff=999 " Center horizontally
 set cursorline " puts a line under where you are
-set wildmenu " :TAB to pull up wildmenu
-set wildmode=list:longest,full " gives you what you want
-set wildignore=**/node_modules/** " fuck you node modules
 set lazyredraw " smoother faster macros
 set number " yay for line numbers!
 set ruler " gives you the bar at the bottom
@@ -55,10 +80,10 @@ set foldmethod=indent " Python exclusive
 set colorcolumn=80 " puts the border column
 set textwidth=79 " ??? When pasting won't let it past colorcolumn...maybe
 " Tabs and spacing
-set tabstop=2 " num spaces tab displays
+set tabstop=2 " Who the hell like this at 8?
 set softtabstop=2 " actual num spaces of tab
 set shiftwidth=2 " > and < spaces
-set expandtab " convert tab to spaces
+set expandtab
 set smarttab " insert blanks when hitting tab in front of a line
 set smartindent " it's not dumb
 set autoindent " what's in a name?
@@ -68,13 +93,6 @@ set nostartofline " won't push you back to start of line when moving rows
 " Searching
 set incsearch " incomplete search shows
 set smartcase " toggles ignorecase depending on your search
-set path+=** " Search all subdirs and -r
-" File Explorer netrw
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_winsize=20
-" By default netrw leaves unmoded buffs open. This deletes them.
-autocmd FileType netrw setl bufhidden=delete " or use :qa!
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
