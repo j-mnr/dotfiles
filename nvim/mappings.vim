@@ -26,6 +26,9 @@ inoremap <silent>] <C-r>=Skip_closing(']')<CR>
 " Squirrely Braces
 inoremap { {}<Left>
 inoremap <silent>} <C-r>=Skip_closing('}')<CR>
+inoremap " <C-r>=Skip_closing('"')<CR>
+inoremap ' <C-r>=Skip_closing("'")<CR>
+inoremap ` <C-r>=Skip_closing("`")<CR>
 " -- INSERT --
 inoremap \\ <C-o>
 " -- NORMAL --
@@ -59,7 +62,7 @@ tnoremap \c <C-c>
 " -- GLOBAL --
 "  Yank & Pull
 vnoremap <Leader>y "+y
-vnoremap <Leader>p "+p
+nnoremap <Leader>+ "+P
 nnoremap <Leader>Y gg"+yG
 " Make what you will
 nnoremap <Leader>m :let &makeprg=""<Left>

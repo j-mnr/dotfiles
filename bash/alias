@@ -14,10 +14,11 @@ alias server='python3 -m http.server'
 alias ssn='shutdown now'
 alias xc='xsel -ib'
 alias xp='xsel -ob'
+alias .1='cd ..'
+alias .2='cd ../..'
 
-# git gud
-lazy() { eval "git add -A && git commit --allow-empty-message --date='$(date)' -C HEAD && git push"; }
 alias g='git'
+lazy() { eval "git add -A && git commit --allow-empty-message --date='$(date)' -C HEAD && git push"; }
 
 cht() { eval "curl cht.sh/$1"; }
 mkcd() { eval "mkdir $1 && cd $1"; }
