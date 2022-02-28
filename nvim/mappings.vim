@@ -47,7 +47,7 @@ nnoremap <Leader>] :cprev<CR>
 nnoremap <Leader>/ :noh<CR>
 nnoremap <Leader><CR> :7sp<CR>:term<CR>i
 " -- VISUAL --
-vnoremap <Leader>v "_dP
+vnoremap _ "_dP
 vnoremap // y/\V<C-r>=escape(@", '/\')<CR><CR>
 vnoremap ra y:%s/\(<C-r>=escape(@", '/\')<CR>\)/
 " Sorting
