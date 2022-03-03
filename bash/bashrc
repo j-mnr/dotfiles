@@ -40,6 +40,7 @@ PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
 
 ll
 task list
+eval "$(direnv hook bash)"
 # journalctl -b -p warning
 # :w !sudo tee %
 
