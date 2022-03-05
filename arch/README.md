@@ -131,6 +131,17 @@ nvim -c "PlugInstall | qa"
 nvim -c "CocInstall -sync coc-css coc-pyright coc-html coc-emmet coc-tag coc-omni coc-emoji coc-git coc-yaml coc-tsserver coc-prettier coc-java coc-markmap | qa" && nvim -c "CocInstall -sync coc-markdownlint coc-lua coc-java-lombok coc-gitignore coc-github coc-fzf-preview coc-cmake coc-clangd coc-angular coc-vetur coc-json | qa" && nvim -c "TSInstall all" && nvim -c CocUpdate
 ```
 
+### Trouble in Paradise
+
+#### Signature from [EMAIL] is marginal trust / corrupted package
+
+```sh
+sudo pacman -Sy archlinux-keyring
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
+sudo pacman -Syu
+```
+
 ### Readings
 
 * [General Recommendations](https://wiki.archlinux.org/title/General_recommendations)
