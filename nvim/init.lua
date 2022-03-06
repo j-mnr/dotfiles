@@ -3,7 +3,6 @@ require'keymaps'
 require'packages'
 
 local cmp = require'cmp'
-
 cmp.setup({
   mapping = {
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),

@@ -42,8 +42,8 @@ nnoremap <Leader>v <C-v>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>e :Lex<CR>
 nnoremap <Leader>q :copen<CR>
-nnoremap <Leader>[ :cnext<CR>
-nnoremap <Leader>] :cprev<CR>
+nnoremap <Leader>[ :cprev<CR>
+nnoremap <Leader>] :cnext<CR>
 nnoremap <Leader>/ :noh<CR>
 nnoremap <Leader><CR> :7sp<CR>:term<CR>i
 " -- VISUAL --
