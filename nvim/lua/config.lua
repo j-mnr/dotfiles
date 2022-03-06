@@ -23,8 +23,9 @@ o.softtabstop = 2
 o.tabstop = 2
 -- Folds
 o.foldnestmax = 3
+o.foldlevelstart = 1
 o.foldmethod = 'indent'
-o.foldexpr = 'nvim_treesitter#indent()'
+o.foldexpr = 'nvim_treesitter#foldindent()'
 -- UX
 o.number = true
 o.numberwidth = 1

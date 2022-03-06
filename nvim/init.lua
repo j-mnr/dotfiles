@@ -1,7 +1,7 @@
 require'keymaps'
 require'packages'
 require'config'
-
+require'statusline'
 
 require'nvim-lsp-installer'.on_server_ready(function(server)
   local opts = {}

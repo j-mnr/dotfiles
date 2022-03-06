@@ -83,7 +83,7 @@ set foldlevelstart=2 " fold level when going to new window 2 for popup
 "set autoindent " what's in a name?
 "set cindent " XXX: This screws `.md` all the indents
 "set backspace=indent,eol,start "XXX: default auto backspace depending on prev char
-set startofline " won't push you back to start of line when moving rows
+"set nostartofline " XXX: default won't push you back to start of line when moving rows
 " Searching
 "set incsearch " incomplete search shows
 "set ignorecase
@@ -106,6 +106,6 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 source $XDG_CONFIG_HOME/nvim/coc.vim
 source $XDG_CONFIG_HOME/nvim/mappings.vim
-source $XDG_CONFIG_HOME/nvim/jayline.vim
+source $XDG_CONFIG_HOME/nvim/old/jayline.vim
 source $XDG_CONFIG_HOME/nvim/functions.vim
 
