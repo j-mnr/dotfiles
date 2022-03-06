@@ -1,9 +1,13 @@
 vim.cmd 'let mapleader = " "'
 
+local keymap = vim.api.nvim_set_keymap
+
 local opts = { noremap = true }
 
-local keymap = vim.api.nvim_set_keymap
-keymap('i', 'jj', '<Esc>', {})
+local function imap(key, map)
+  keymap('i', key, map, opts)
+end
+imap('jj', '<Esc>')
 
 local function nmap(key, map)
   keymap('n', key, map, opts)
@@ -19,7 +23,7 @@ nmap('<Leader>i', '<C-i>')
 -- TODO
 nmap('<Leader>/', ':nohlsearch<CR>')
 nmap('U', '<C-r>')
-
+nmap('<Leader>v', '<C-v>')
 -- All the LSP goodies
 nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
 nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
@@ -33,3 +37,10 @@ nmap('<C-k>', ':lua vim.lsp.buf.signature_help()<CR>')
 nmap('<Leader>af', ':lua vim.lsp.buf.code_action()<CR>')
 nmap('<Leader>rn', ':lua vim.lsp.buf.rename()<CR>')
 
+
+
+local function vmap(key, map)
+  keymap('v', key, map, opts)
+end
+vmap('J', ":m '>+1<CR>gv=gv")
+vmap('K', ":m '<-2<CR>gv=gv")

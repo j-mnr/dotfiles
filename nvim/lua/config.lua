@@ -1,6 +1,7 @@
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin on'
 vim.cmd 'filetype indent on'
+vim.cmd 'colorscheme monokai'
 
 local o = vim.opt
 -- Global config
@@ -47,7 +48,6 @@ o.path = '.,,**'
 o.wildmenu = true
 
 o.termguicolors = true
-vim.cmd 'colorscheme aurora'
 
 -- o.updatetime = 100
 -- o.smartindent = true

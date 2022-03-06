@@ -75,11 +75,6 @@ _G.packer_plugins = {
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  aurora = {
-    loaded = true,
-    path = "/home/jay/.local/share/nvim/site/pack/packer/start/aurora",
-    url = "https://github.com/ray-x/aurora"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -100,13 +95,22 @@ _G.packer_plugins = {
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/home/jay/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["monokai.nvim"] = {
+    loaded = true,
+    path = "/home/jay/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+    url = "https://github.com/tanvirtin/monokai.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
-    config = { "\27LJ\2\n£\1\0\1\a\0\f\0\0194\1\0\0009\2\0\0\a\2\1\0X\2\n€5\2\t\0005\3\a\0005\4\5\0005\5\3\0005\6\2\0=\6\4\5=\5\6\4=\4\b\3=\3\n\2\18\1\2\0\18\4\0\0009\2\v\0\18\5\1\0B\2\3\1K\0\1\0\nsetup\rsettings\1\0\0\bLua\1\0\0\16diagnostics\1\0\0\fglobals\1\0\0\1\3\0\0\bvim\buse\16sumneko_lua\tnameO\1\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0003\2\3\0B\0\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0" },
     loaded = true,
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
@@ -117,7 +121,6 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n›\1\0\0\3\0\b\0\n6\0\0\0'\2\1\0B\0\2\0025\1\3\0005\2\4\0=\2\5\0015\2\6\0=\2\a\1=\1\2\0K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\15maintained\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -131,6 +134,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jay/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/jay/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
@@ -139,14 +147,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n´\2\0\0\b\0\19\1\0286\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0019\3\4\0B\1\2\0019\1\5\0009\1\6\0014\2\3\0009\3\b\0'\5\t\0'\6\n\0'\a\v\0B\3\4\0?\3\0\0=\2\a\0016\1\f\0009\1\r\0019\1\14\1'\3\15\0'\4\16\0'\5\17\0005\6\18\0B\1\5\1K\0\1\0\1\0\1\fnoremap\2\15:Alpha<CR>\n<C-n>\6n\20nvim_set_keymap\bapi\bvim#:e ~/.config/nvim/init.lua<CR>\18neovim config\6c\vbutton\bval\19bottom_buttons\fsection\topts\nsetup\nalpha\26alpha.themes.startify\frequire\3€€À™\4\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\3\0\b\0\n6\0\0\0'\2\1\0B\0\2\0025\1\3\0005\2\4\0=\2\5\0015\2\6\0=\2\a\1=\1\2\0K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\15maintained\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-try_loadstring("\27LJ\2\n£\1\0\1\a\0\f\0\0194\1\0\0009\2\0\0\a\2\1\0X\2\n€5\2\t\0005\3\a\0005\4\5\0005\5\3\0005\6\2\0=\6\4\5=\5\6\4=\4\b\3=\3\n\2\18\1\2\0\18\4\0\0009\2\v\0\18\5\1\0B\2\3\1K\0\1\0\nsetup\rsettings\1\0\0\bLua\1\0\0\16diagnostics\1\0\0\fglobals\1\0\0\1\3\0\0\bvim\buse\16sumneko_lua\tnameO\1\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0003\2\3\0B\0\2\1K\0\1\0\0\20on_server_ready\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
-time([[Config for nvim-lsp-installer]], false)
 if should_profile then save_profiles() end
 
 end)

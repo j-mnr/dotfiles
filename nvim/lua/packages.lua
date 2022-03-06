@@ -1,6 +1,5 @@
 require'packer'.startup(function()
   use 'wbthomason/packer.nvim'
-  use 'ray-x/aurora'
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -13,44 +12,15 @@ require'packer'.startup(function()
         vim.api.nvim_set_keymap('n', '<C-n>', ':Alpha<CR>', { noremap = true })
     end
   }
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require'nvim-treesitter.configs'.setup = {
-        ensure_installed = 'maintained',
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        }
-      }
-    end
-  }
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'tanvirtin/monokai.nvim'
   use 'neovim/nvim-lspconfig'
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require("nvim-lsp-installer").on_server_ready(function(server)
-        local opts = {}
-        if server.name == "sumneko_lua" then
-          opts = {
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { 'vim', 'use' }
-                },
-              }
-            }
-          }
-        end
-        server:setup(opts)
-      end)
-    end
-  }
+  use 'williamboman/nvim-lsp-installer'
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
 end)
