@@ -1,4 +1,4 @@
-vim.cmd 'let mapleader = " "'
+vim.cmd [[ let mapleader = ' ' ]]
 
 local api = vim.api
 local keymap = api.nvim_set_keymap
@@ -42,24 +42,14 @@ nmap('<Leader>l', '<C-w><C-l>')
 -- Jumplist
 nmap('<Leader>o', '<C-o>')
 nmap('<Leader>i', '<C-i>')
+-- Taglist
+nmap('<Leader>t', '<C-t>')
 -- TODO
-nmap('<Leader>/', ':nohlsearch<CR>')
+nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('U', '<C-r>')
 nmap('<Leader>v', '<C-v>')
--- All the LSP goodies
-nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
-nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
-nmap('gi', ':lua vim.lsp.buf.implementation()<CR>')
-nmap('gw', ':lua vim.lsp.buf.document_symbol()<CR>')
-nmap('gw', ':lua vim.lsp.buf.workspace_symbol()<CR>')
-nmap('gr', ':lua vim.lsp.buf.references()<CR>')
-nmap('gt', ':lua vim.lsp.buf.type_definition()<CR>')
-nmap('K', ':lua vim.lsp.buf.hover()<CR>')
-nmap('<C-k>', ':lua vim.lsp.buf.signature_help()<CR>')
-nmap('<Leader>af', ':lua vim.lsp.buf.code_action()<CR>')
-nmap('<Leader>rn', ':lua vim.lsp.buf.rename()<CR>')
-
-
+nmap('<Leader>\\', '<Cmd>vsplit<CR>')
+nmap('<Leader><CR>', '<Cmd>7sp<CR>:term<CR>i')
 
 local function vmap(key, map)
   keymap('v', key, map, opts)

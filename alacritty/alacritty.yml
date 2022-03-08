@@ -55,7 +55,7 @@ schemes:
 
   monokai: &monokai
     primary:
-      background: "#272822"
+      background: "#26292C"
       foreground: "#F8F8F2"
     normal:
       black: "#272822"
@@ -99,4 +99,4 @@ schemes:
       magenta: "0xbb9af7"
       cyan: "0x0db9d7"
       white: "0xacb0d0"
-colors: *aurora
+colors: *monokai

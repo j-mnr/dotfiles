@@ -14,4 +14,5 @@ require'packer'.startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'tanvirtin/monokai.nvim'
   use 'kyazdani42/nvim-web-devicons'
+  use 'chrisbra/Colorizer'
 end)

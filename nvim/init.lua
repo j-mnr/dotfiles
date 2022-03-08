@@ -5,20 +5,15 @@ require'statusline'
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  }
+  highlight = { enable = true },
 }
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
-cmp.setup({
+cmp.setup {
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      require'luasnip'.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -44,7 +39,7 @@ cmp.setup({
   }, {
     { name = 'buffer' },
     }),
-})
+}
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
@@ -73,12 +68,42 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['sumneko_lua'].setup {
-  capabilities = capabilities
-}
-require'lspconfig'.gopls.setup {
-  on_attach = function ()
-    vim.keymap.set('n', '<Leader>gq', vim.lsp.buf.formatting, { buffer = 0 })
+local opts = { buffer = 0 }
+local servers = { 'gopls', 'sumneko_lua' }
+for _, lsp in pairs(servers) do
+  local settings  = {}
+  if lsp == 'sumneko_lua' then
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = {'vim', 'use'},
+        },
+      }
+    }
   end
+  require'lspconfig'[lsp].setup {
+    capabilities = capabilities,
+    on_attach = function ()
+      vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', 'gq', vim.lsp.buf.formatting, opts)
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+      vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    end,
+    settings = settings,
 }
+end
+
+-- TODO(jaymonari): map these things... One a day?
+--  local opts = { noremap=true, silent=true }
+--  vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+--  vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+--    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+--    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+--    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+--    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
