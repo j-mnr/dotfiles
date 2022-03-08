@@ -3,29 +3,13 @@ require'packages'
 require'config'
 require'statusline'
 
-require'nvim-lsp-installer'.on_server_ready(function(server)
-  local opts = {}
-  if server.name == "sumneko_lua" then
-    opts = {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim', 'use' }
-          },
-        }
-      }
-    }
-  end
-  server:setup(opts)
-end)
-
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- Only use parsers that are maintained
-  highlight = { -- enable highlighting
+  ensure_installed = "maintained",
+  highlight = {
     enable = true,
   },
   indent = {
-    enable = true, -- default is disabled anyways
+    enable = true,
   }
 }
 
@@ -42,7 +26,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    [','] = cmp.mapping({
+    ['['] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
@@ -59,7 +43,7 @@ cmp.setup({
   { name = 'vsnip' },
   }, {
     { name = 'buffer' },
-    })
+    }),
 })
 
 -- Set configuration for specific filetype.
@@ -92,4 +76,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')['sumneko_lua'].setup {
   capabilities = capabilities
+}
+require'lspconfig'.gopls.setup {
+  on_attach = function ()
+    vim.keymap.set('n', '<Leader>gq', vim.lsp.buf.formatting, { buffer = 0 })
+  end
 }

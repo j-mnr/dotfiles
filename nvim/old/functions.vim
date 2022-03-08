@@ -1,5 +1,4 @@
 let g:AllPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"', "`":"`"}
-
 function! Skip_closing(pair)
   if s:get_character_at(1) == a:pair
     return "\<Right>"

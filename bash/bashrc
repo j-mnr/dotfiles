@@ -6,7 +6,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Stupid workaround for stupid nvim-cmp
-export PATH="$PATH:$HOME/.local/bin:$HOME/.local/google-cloud-sdk/bin:$XDG_DATA_HOME/nvim/lsp_servers/sumneko_lua/extension/server/bin/"
+export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/gcloud/bin"
+export PATH="$PATH:$XDG_DATA_HOME/lua/bin/"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
@@ -46,3 +47,5 @@ eval "$(direnv hook bash)"
 # journalctl -b -p warning
 # :w !sudo tee %
 
+
+alias luamake=/home/jay/lua-language-server/3rd/luamake/luamake

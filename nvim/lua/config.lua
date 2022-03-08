@@ -48,7 +48,9 @@ o.smartcase = true
 o.path = '.,,**'
 o.wildmenu = true
 
+-- TODO put these somewhere
 o.termguicolors = true
+o.completeopt = 'menu,menuone,noselect'
 
 -- o.updatetime = 100
 -- o.smartindent = true
