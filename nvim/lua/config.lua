@@ -1,7 +1,11 @@
-vim.cmd 'syntax enable'
-vim.cmd 'filetype plugin on'
-vim.cmd 'filetype indent on'
-vim.cmd 'colorscheme monokai'
+vim.cmd [[
+syntax enable
+filetype plugin on
+filetype indent on
+colorscheme monokai
+autocmd FocusLost,WinEnter,WinLeave * silent! update
+autocmd FileType go set noexpandtab
+]]
 
 local o = vim.opt
 -- Global config
@@ -27,6 +31,7 @@ o.foldlevelstart = 1
 o.foldmethod = 'indent'
 o.foldexpr = 'nvim_treesitter#foldindent()'
 -- UX
+o.termguicolors = true
 o.number = true
 o.numberwidth = 1
 o.ruler = true
@@ -49,8 +54,8 @@ o.path = '.,,**'
 o.wildmenu = true
 
 -- TODO put these somewhere
-o.termguicolors = true
 o.completeopt = 'menu,menuone,noselect'
 
 -- o.updatetime = 100
 -- o.smartindent = true
+-- o.cindent = true

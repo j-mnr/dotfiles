@@ -1,8 +1,8 @@
 " Bare Necessities
-set nocompatible
-syntax enable
-filetype plugin on
-filetype indent on
+"set nocompatible
+"syntax enable
+"filetype plugin on
+"filetype indent on
 
 " File Explorer netrw |netrw-browse-maps|
 let g:netrw_banner=0 " disable banner
@@ -15,7 +15,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide() " |netrw-gitignore|
 " By default netrw leaves unmoded buffs open. This deletes them.
 autocmd FileType netrw setl bufhidden=delete " or use :qa!
 
-autocmd FileType go set noexpandtab " Go I love you but..... >:(
+"autocmd FileType go set noexpandtab " Go I love you but..... >:(
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -40,8 +40,8 @@ let g:rainbow_active = 1
 
 "set virtualedit=all " Virtual edit best edit
 " autocommand to save on losing focus
-:au FocusLost,WinEnter,WinLeave * silent! update
-":au BufWrite,BufEnter,InsertLeave * lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
+":au FocusLost,WinEnter,WinLeave * silent! update
+"":au BufWrite,BufEnter,InsertLeave * lua vim.diagnostic.setloclist({open_loclist = false})
 "set gdefault " turns on [g] flag for :substitute
 "set autowriteall " It does as it says
 "set autoread " automatically reload files upon change outside editor
@@ -102,10 +102,10 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 au BufWinLeave * call clearmatches()
 
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+"lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
-source $XDG_CONFIG_HOME/nvim/coc.vim
-source $XDG_CONFIG_HOME/nvim/mappings.vim
-source $XDG_CONFIG_HOME/nvim/old/jayline.vim
-source $XDG_CONFIG_HOME/nvim/functions.vim
+"source $XDG_CONFIG_HOME/nvim/coc.vim
+"source $XDG_CONFIG_HOME/nvim/mappings.vim
+"source $XDG_CONFIG_HOME/nvim/old/jayline.vim
+"source $XDG_CONFIG_HOME/nvim/functions.vim
 
