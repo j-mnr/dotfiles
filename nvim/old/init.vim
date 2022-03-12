@@ -106,6 +106,6 @@ au BufWinLeave * call clearmatches()
 
 "source $XDG_CONFIG_HOME/nvim/coc.vim
 "source $XDG_CONFIG_HOME/nvim/mappings.vim
-"source $XDG_CONFIG_HOME/nvim/old/jayline.vim
+"source $XDG_CONFIG_HOME/nvim/old/ ./jayline.vim
 "source $XDG_CONFIG_HOME/nvim/functions.vim
 

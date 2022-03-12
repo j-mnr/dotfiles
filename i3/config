@@ -21,7 +21,7 @@ bindsym $mod+a exec --no-startup-id $TERMINAL
 bindsym $mod+w exec --no-startup-id $BROWSER
 bindsym $mod+t exec --no-startup-id $TERMINAL -e htop
 bindsym $mod+y exec --no-startup-id i3lock --color 000000
-bindsym $mod+m exec --no-startup-id mpv --ytdl-format=best[height=720] --gapless-audio=yes $(xsel -ob)
+bindsym $mod+m exec --no-startup-id mpv --ytdl-format=best[height=720] --gapless-audio=yes https://www.twitch.tv/futurama_mania06
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
