@@ -26,6 +26,8 @@ endif
 let data_dir = has('nvim') ? stdpath('data') : '~/.vim'
 call plug#begin(data_dir . "/plugged")
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'ray-x/aurora'
 Plug 'nvim-treesitter/nvim-treesitter',
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

@@ -1,4 +1,4 @@
-require'packer'.startup(function()
+require 'packer'.startup(function()
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   -- nvim-cmp
@@ -15,14 +15,16 @@ require'packer'.startup(function()
   -- Git gud
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
-    config = function()
-      require('gitsigns').setup()
-    end
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function() require 'gitsigns'.setup() end,
   }
+  -- TODO(jaymonari): This can be updated with telescope/git plugin
   use 'tpope/vim-fugitive'
+  -- No Comment...
+  use {
+    'numToStr/Comment.nvim',
+    config = function() require 'Comment'.setup() end,
+  }
   -- Colorscheme and goodies
   use 'nvim-treesitter/nvim-treesitter'
   use 'tanvirtin/monokai.nvim'

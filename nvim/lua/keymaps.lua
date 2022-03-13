@@ -1,7 +1,6 @@
 vim.cmd [[ let mapleader = ' ' ]]
 
-local api = vim.api
-local keymap = api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 local opts = { noremap = true }
 
@@ -10,7 +9,7 @@ function! s:get_character_at(position)
   return strpart(getline('.'), col('.') - a:position, 1)
 endfunction
 
- function! Skip_closing(pair)
+function! Skip_closing(pair)
   if s:get_character_at(1) == a:pair
     return "\<Right>"
   else
