@@ -144,6 +144,14 @@ local colors = {
 
 Statusline = {}
 
+local function modified()
+  if vim.bo.modified then
+    return '[+]'
+  else
+    return ''
+  end
+end
+
 Statusline.active = function ()
   return table.concat {
     '%#Statusline#',
@@ -153,6 +161,7 @@ Statusline.active = function ()
     colors.blue,
     filepath(),
     filename(),
+    modified(),
     lsp(),
     '%=',
     colors.green,

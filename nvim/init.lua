@@ -34,36 +34,36 @@ cmp.setup {
     end
   },
   sources = cmp.config.sources({
-  { name = 'nvim_lsp' },
-  { name = 'vsnip' },
+    { name = 'nvim_lsp' },
+    { name = 'emoji' },
   }, {
     { name = 'buffer' },
-    }),
+  }),
 }
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-  { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'cmp_git' },
   }, {
     { name = 'buffer' },
-    })
+  })
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   sources = {
-  { name = 'buffer' }
+    { name = 'buffer' }
   }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-  { name = 'path' }
+    { name = 'path' }
   }, {
     { name = 'cmdline' }
-    })
+  })
 })
 
 -- Setup lspconfig.
@@ -84,7 +84,7 @@ for _, lsp in pairs(servers) do
   require'lspconfig'[lsp].setup {
     capabilities = capabilities,
     on_attach = function ()
-      vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '[ca', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'gq', vim.lsp.buf.formatting, opts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -96,7 +96,7 @@ for _, lsp in pairs(servers) do
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     end,
     settings = settings,
-}
+  }
 end
 
 -- TODO(jaymonari): Not all LSPs support formatting... fucking stupid, now

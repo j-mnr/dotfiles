@@ -47,6 +47,9 @@ nmap('<Leader>o', '<C-o>')
 nmap('<Leader>i', '<C-i>')
 -- Taglist
 nmap('<Leader>t', '<C-t>')
+-- Make
+nmap('<Leader>m', ':let &makeprg=""<Left>')
+nmap('<Leader>c', ':cclose<CR>:silent !clear<CR>:make<CR>')
 -- TODO
 nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('U', '<C-r>')
