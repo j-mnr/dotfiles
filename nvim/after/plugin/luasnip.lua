@@ -1,14 +1,15 @@
-local ls = require'luasnip'
-local rep = require'luasnip.extras'.rep
-local fmt = require'luasnip.extras.fmt'.fmt
-local types = require'luasnip.util.types'
+local ls = require 'luasnip'
+local rep = require 'luasnip.extras'.rep
+local fmt = require 'luasnip.extras.fmt'.fmt
+local types = require 'luasnip.util.types'
 local s = ls.s
 local i = ls.insert_node
+local t = ls.text_node
 
 ls.config.set_config {
   history = true,
   updateevents = 'TextChanged,TextChangedI',
-  -- enable_autosnippets = true,
+  enable_autosnippets = false,
   ext_opts = {
     [types.choiceNode] = {
       active = {
@@ -40,10 +41,13 @@ ls.snippets = {
   all = {
     snip('expand', '-- this is what was expanded'),
   },
-
+  go = {
+    snip('er', 'if err != nil {\n\t$0\n}'),
+    s('func', fmt('// {}\nfunc {}({}) {} {{\n\treturn {}\n}}', { rep(1), i(1), i(2), i(3), i(0),})),
+  },
   lua = {
     snip('lf', '--Defined in $TM_FILENAME\nlocal $1 = function($2)\n $0\nend'),
     snip('mf', '$1.$2 = function($3)\n $0\nend'),
-    s('req', fmt("local {} = require'{}'", { i(1, 'defualt'), rep(1) })),
-  }
+    s('req', fmt("local {} = require '{}'", { i(1, 'defualt'), rep(1) })),
+  },
 }
