@@ -5,6 +5,7 @@ local types = require 'luasnip.util.types'
 local s = ls.s
 local i = ls.insert_node
 local t = ls.text_node
+local c = ls.choice_node
 
 ls.config.set_config {
   history = true,
@@ -40,10 +41,25 @@ local snip = ls.parser.parse_snippet
 ls.snippets = {
   all = {
     snip('expand', '-- this is what was expanded'),
+            s(
+            "fmt1",
+            fmt("To {title} {} {}.", {
+                i(2, "Name"),
+                i(3, "Surname"),
+                title = c(1, { t("Mr."), t("Ms.") }),
+            })
+        ),
+
   },
   go = {
+    s('fp', fmt('fmt.Print{type}({})', {
+      i(2),
+      type = c(1, { t 'ln', t 'f', t '', }),
+    })),
+    s('func', fmt('// {}\nfunc {}({}) {} {{\n\treturn {}\n}}', {
+      rep(1), i(1), i(2), i(3), i(0),
+    })),
     snip('er', 'if err != nil {\n\t$0\n}'),
-    s('func', fmt('// {}\nfunc {}({}) {} {{\n\treturn {}\n}}', { rep(1), i(1), i(2), i(3), i(0),})),
   },
   lua = {
     snip('lf', '--Defined in $TM_FILENAME\nlocal $1 = function($2)\n $0\nend'),

@@ -79,7 +79,7 @@ for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp' } do
   require 'lspconfig'[lsp].setup {
     capabilities = capabilities,
     on_attach = function ()
-      vim.keymap.set('n', '[ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '<Leader><Leader>ca', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'gq', vim.lsp.buf.formatting, opts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
