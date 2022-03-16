@@ -65,7 +65,7 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { buffer = 0 }
-for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp' } do
+for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', } do
   local settings  = {}
   if lsp == 'sumneko_lua' then
     settings = {
@@ -93,10 +93,6 @@ for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp' } do
     settings = settings,
   }
 end
-
--- TODO(jaymonari): Not all LSPs support formatting... fucking stupid, now
--- what? EFM -- RUN TWO LSPs? Should have just stayed with COC....
-
 
 -- TODO(jaymonari): map these things... One a day?
 --  local opts = { noremap=true, silent=true }
