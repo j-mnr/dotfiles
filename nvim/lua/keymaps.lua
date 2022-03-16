@@ -55,9 +55,16 @@ nmap('U', '<C-r>')
 nmap('<Leader>v', '<C-v>')
 nmap('<Leader>\\', '<Cmd>vsplit<CR>')
 nmap('<Leader><CR>', '<Cmd>7sp<CR>:term<CR>i')
+nmap('<Leader>+', '"+P')
 
 local function vmap(key, map)
   keymap('v', key, map, opts)
 end
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
+
+--Defined in keymaps.lua
+local function tmap(key, map)
+  keymap('t', key, map, opts)
+end
+tmap('\\\\', '<C-\\><C-n>')
