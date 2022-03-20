@@ -62,6 +62,7 @@ local function vmap(key, map)
 end
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
+vmap('<Leader>y', '"+y')
 
 --Defined in keymaps.lua
 local function tmap(key, map)
