@@ -41,11 +41,6 @@ PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
 . "$XDG_CONFIG_HOME/bash/gsdk.path"
 . "$XDG_CONFIG_HOME/bash/gsdk.completion"
 
-ll
-task list
 eval "$(direnv hook bash)"
 # journalctl -b -p warning
 # :w !sudo tee %
-
-
-alias luamake=/home/jay/lua-language-server/3rd/luamake/luamake

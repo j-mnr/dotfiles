@@ -59,7 +59,7 @@ ls.snippets = {
     s('func', fmt('// {}\nfunc {}({}) {} {{\n\treturn {}\n}}', {
       rep(1), i(1), i(2), i(3), i(0),
     })),
-    snip('er', 'if err != nil {\n\t$0\n}'),
+    snip('er', 'if err != nil {\n\treturn $0\n}'),
   },
   lua = {
     snip('lf', '--Defined in $TM_FILENAME\nlocal $1 = function($2)\n $0\nend'),

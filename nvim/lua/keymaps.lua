@@ -54,7 +54,7 @@ nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('U', '<C-r>')
 nmap('<Leader>v', '<C-v>')
 nmap('<Leader>\\', '<Cmd>vsplit<CR>')
-nmap('<Leader><CR>', '<Cmd>7sp<CR>:term<CR>i')
+nmap('<Leader><CR>', '<Cmd>7sp<CR><Cmd>term<CR>i')
 nmap('<Leader>+', '"+P')
 
 local function vmap(key, map)
