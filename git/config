@@ -9,16 +9,19 @@
   aa = add -A
   b = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   bD = branch -D
-  c = commit -m
+  cc = commit -m
   ca = commit --amend
   caem = commit --allow-empty-message -C HEAD
-  cane = commit --amend --no-edit
+  ce = commit --amend --no-edit
   co = checkout
   cl = clone
   d = diff
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   p = push
   pl = pull
+  remrem = push origin --delete
   s = status --short --branch
   unstage = restore --staged .
-  wta = worktree add
+  wt = worktree
+  wtaddfetch = +refs/heads/*:refs/remotes/origin/*
+
