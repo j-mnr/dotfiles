@@ -56,6 +56,7 @@ nmap('<Leader>v', '<C-v>')
 nmap('<Leader>\\', '<Cmd>vsplit<CR>')
 nmap('<Leader><CR>', '<Cmd>7sp<CR><Cmd>term<CR>i')
 nmap('<Leader>+', '"+P')
+nmap('<Leader>ra', ':%s/\\<\\(<C-r><C-w>\\)\\>/')
 
 local function vmap(key, map)
   keymap('v', key, map, opts)
