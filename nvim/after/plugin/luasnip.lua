@@ -56,14 +56,14 @@ ls.snippets = {
       i(2),
       type = c(1, { t 'ln', t 'f', t '', }),
     })),
-    s('func', fmt('// {}\nfunc {}({}) {} {{\n\treturn {}\n}}', {
-      rep(1), i(1), i(2), i(3), i(0),
+    s('func', fmt('// {}{}\nfunc {}({}) {} {{\n\treturn {}\n}}', {
+      i(1), i(2), rep(1), i(3), i(4), i(0),
     })),
     snip('er', 'if err != nil {\n\treturn $0\n}'),
   },
   lua = {
     snip('lf', '--Defined in $TM_FILENAME\nlocal $1 = function($2)\n $0\nend'),
     snip('mf', '$1.$2 = function($3)\n $0\nend'),
-    s('req', fmt("local {} = require '{}'", { i(1, 'defualt'), rep(1) })),
+    s('req', fmt("local {} = require '{}'", { i(1, 'default'), rep(1) })),
   },
 }
