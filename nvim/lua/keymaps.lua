@@ -49,13 +49,23 @@ nmap('<Leader>t', '<C-t>')
 -- Make
 nmap('<Leader>m', ':let &makeprg=""<Left>')
 nmap('<Leader>c', ':cclose<CR>:silent !clear<CR>:make<CR>')
--- TODO
-nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
-nmap('U', '<C-r>')
-nmap('<Leader>v', '<C-v>')
+-- Quick/Loc List aka PROJECT WIDE
+nmap('[c', '<Cmd>cprev<CR>')
+nmap(']c', '<Cmd>cnext<CR>')
+nmap('<Leader><Leader>cw', '<Cmd>cw<CR>')
+-- TODO(jay.monari): Add :cdo s/foo/bar/ | update && :cfdo bd
+nmap('[l', '<Cmd>lprev<CR>')
+nmap(']l', '<Cmd>lnext<CR>')
+nmap('<Leader><Leader>lw', '<Cmd>lw<CR>')
+-- Term
 nmap('<Leader>\\', '<Cmd>vsplit<CR>')
 nmap('<Leader><CR>', '<Cmd>7sp<CR><Cmd>term<CR>i')
+-- Should be Stock Mappings
+nmap('U', '<C-r>')
+nmap('<Leader>v', '<C-v>')
 nmap('<Leader>+', '"+P')
+-- TODO
+nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('<Leader>ra', ':%s/\\<\\(<C-r><C-w>\\)\\>/')
 
 local function vmap(key, map)
