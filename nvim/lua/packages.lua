@@ -10,8 +10,8 @@ require 'packer'.startup(function()
   use 'hrsh7th/cmp-git'
   use 'hrsh7th/nvim-cmp'
   -- snippets for nvim-cmp
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  use 'SirVer/ultisnips'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
   -- Git gud
   use {
     'lewis6991/gitsigns.nvim',
@@ -20,11 +20,12 @@ require 'packer'.startup(function()
   }
   -- TODO(jaymonari): This can be updated with telescope/git plugin
   use 'tpope/vim-fugitive'
-  -- No Comment...
+  -- No Comment... 😹
   use {
     'numToStr/Comment.nvim',
     config = function () require 'Comment'.setup() end,
   }
+  use 'tpope/vim-surround'
   -- Colorscheme and goodies
   use 'nvim-treesitter/nvim-treesitter'
   use {
