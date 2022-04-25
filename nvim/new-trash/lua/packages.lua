@@ -10,8 +10,8 @@ require 'packer'.startup(function()
   use 'hrsh7th/cmp-git'
   use 'hrsh7th/nvim-cmp'
   -- snippets for nvim-cmp
-  use 'SirVer/ultisnips'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
   -- Git gud
   use {
     'lewis6991/gitsigns.nvim',

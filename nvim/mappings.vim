@@ -1,8 +1,9 @@
+nnoremap <Leader><Leader>s :source ~/.config/nvim/init.vim<CR>
+
 let mapleader = " "
 " -- GOD TIER --
 nnoremap <Leader>d <C-d>
 nnoremap <Leader>u <C-u>
-cmap <Leader>reg <C-r>
 xnoremap <silent> . :normal .<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
@@ -19,12 +20,15 @@ vnoremap K :m '<-2<CR>gv=gv
 " == AUTO-COMPLETE ==
 " Parens
 inoremap ( ()<Left>
+inoremap (<CR> (<CR>)<C-o>O
 inoremap <silent>) <C-r>=Skip_closing(')')<CR>
 " Brackets
 inoremap [ []<Left>
+inoremap [<CR> [<CR>]<C-o>O
 inoremap <silent>] <C-r>=Skip_closing(']')<CR>
 " Squirrely Braces
 inoremap { {}<Left>
+inoremap {<CR> {<CR>}<C-o>O
 inoremap <silent>} <C-r>=Skip_closing('}')<CR>
 inoremap " <C-r>=Skip_closing('"')<CR>
 inoremap ' <C-r>=Skip_closing("'")<CR>
@@ -32,17 +36,13 @@ inoremap ` <C-r>=Skip_closing("`")<CR>
 " -- INSERT --
 inoremap \\ <C-o>
 " -- NORMAL --
-nnoremap j gj
-nnoremap k gk
-nnoremap <Leader>nl o<Esc>
-nnoremap <Leader>nL O<Esc>
 nnoremap <Leader>ra :%s/\<\(<C-r><C-w>\)\>/
 nnoremap U <C-r>
 nnoremap <Leader>v <C-v>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>e :Lex<CR>
 nnoremap <Leader>q :copen<CR>
-nnoremap <Leader>[ :cprev<CR>
+nnoremap [ :cprev<CR>
 nnoremap <Leader>] :cnext<CR>
 nnoremap <Leader>/ :noh<CR>
 nnoremap <Leader><CR> :7sp<CR>:term<CR>i
@@ -56,7 +56,7 @@ vnoremap <Leader>s :'<,'>!sort -f<CR>
 nnoremap <silent> <Leader>rs :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s
                              \ <Bar> :nohl <Bar> :unlet _s <CR>
 " -- TERMINAL --
-tnoremap \<CR> <C-\><C-n>
+tnoremap \\ <C-\><C-n>
 tnoremap \2 <C-\><C-n>:res2<CR>:wincmd k<CR>
 tnoremap \c <C-c>
 " -- GLOBAL --
