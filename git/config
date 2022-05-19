@@ -25,3 +25,5 @@
   wt = worktree
   wtaddfetch = +refs/heads/*:refs/remotes/origin/*
 
+[fetch]
+	prune = true

@@ -42,7 +42,7 @@ colorscheme monokai
 
 set virtualedit=all " Virtual edit best edit
 " autocommand to save on losing focus
-:au FocusLost,WinEnter,WinLeave * silent! update
+au FocusLost,WinEnter,WinLeave * silent! update
 set gdefault " turns on [g] flag for :substitute
 set autowriteall " It does as it says
 set autoread " automatically reload files upon change outside editor

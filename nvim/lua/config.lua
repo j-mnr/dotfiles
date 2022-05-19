@@ -55,7 +55,15 @@ o.wildmenu = true
 
 -- TODO put these somewhere
 o.completeopt = 'menu,menuone,noselect'
+o.updatetime = 100
 
--- o.updatetime = 100
+vim.cmd [[
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+au BufWinEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+au BufWinLeave * call clearmatches()
+]]
 -- o.smartindent = true
 -- o.cindent = true

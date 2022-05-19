@@ -10,8 +10,8 @@ local modes = {
   ['s']  = 'S',
   ['S']  = 'S·L',
   [''] = 'S·B',
-  ['i']  = '🦋',
-  ['ic'] = '🦋',
+  ['i']  = '🪲',
+  ['ic'] = '🪲',
   ['R']  = '😎',
   ['Rv'] = '🦮',
   ['c']  = '💽',
@@ -125,14 +125,14 @@ local vcs = function()
      changed,
      removed,
      " ",
-     "%#GitSignsAdd# ",
+     "%#LineNr# ",
      git_info.head,
      " %#Normal#",
   }
 end
 
 local colors = {
-  purple = '%#TSConstMacro#',
+  purple = '%#LineNr#',
   blue = '%#TSConstant#',
   green = '%#TSAnnotation#',
   yellow = '%#TSCharacter#',
@@ -165,8 +165,9 @@ Statusline.active = function ()
     lsp(),
     '%=',
     colors.green,
-    vim.bo.fileformat .. ' ',
+    os.date"[%H:%M] ",
     colors.orange,
+    vim.bo.fileformat .. ' ',
     vim.bo.fileencoding,
     colors.yellow,
     filetype(),

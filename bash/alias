@@ -19,6 +19,7 @@ alias xc='xsel -ib'
 alias xp='xsel -ob'
 alias .1='cd ..'
 alias .2='cd ../..'
+alias playtime='cd ~/src/go/playground && vim main.go'
 
 alias g='git'
 lazy() { eval "git add -A && git commit --allow-empty-message --date='$(date)' -C HEAD && git push"; }
