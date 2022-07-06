@@ -8,9 +8,7 @@ require 'nvim-treesitter.configs'.setup {
   highlight = { enable = true },
 }
 
--- Setup nvim-cmp.
 local cmp = require 'cmp'
-
 cmp.setup {
   snippet = {
     expand = function(args) require 'luasnip'.lsp_expand(args.body) end,
@@ -68,21 +66,22 @@ cmp.setup.cmdline(':', {
 local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { buffer = 0 }
 for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'tsserver', 'emmet_ls' } do
-  local settings  = {}
+  local settings = {}
   if lsp == 'sumneko_lua' then
     settings = {
       Lua = {
         diagnostics = {
-          globals = {'vim', 'use'},
+          globals = { 'vim', 'use' },
         },
       }
     }
   end
   require 'lspconfig'[lsp].setup {
     capabilities = capabilities,
-    on_attach = function ()
+    on_attach = function()
       vim.keymap.set('n', '<Leader><Leader>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', 'gq', vim.lsp.buf.formatting, opts)
+      vim.keymap.set('n', 'gq', function() vim.lsp.buf.format { async = true }
+      end, opts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
@@ -91,6 +90,7 @@ for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'tsse
       vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist, opts)
     end,
     settings = settings,
   }
@@ -99,7 +99,6 @@ end
 -- TODO(jaymonari): map these things... One a day?
 --  local opts = { noremap=true, silent=true }
 --  vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
---  vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 --    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 --    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
 --    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)

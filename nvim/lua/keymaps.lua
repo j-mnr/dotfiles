@@ -50,9 +50,10 @@ nmap('<Leader>t', '<C-t>')
 nmap('<Leader>m', ':let &makeprg=""<Left>')
 nmap('<Leader>c', ':cclose<CR>:silent !clear<CR>:make<CR>')
 -- Quick/Loc List aka PROJECT WIDE
-nmap('[c', '<Cmd>cprev<CR>')
-nmap(']c', '<Cmd>cnext<CR>')
+nmap('[c', '<Cmd>cprev<CR>zz')
+nmap(']c', '<Cmd>cnext<CR>zz')
 nmap('<Leader><Leader>cw', '<Cmd>cw<CR>')
+nmap('<Leader><Leader>cf', '<Cmd>:Cfilter! <C-r><C-f><CR>')
 -- TODO(jay.monari): Add :cdo s/foo/bar/ | update && :cfdo bd
 nmap('[l', '<Cmd>lprev<CR>')
 nmap(']l', '<Cmd>lnext<CR>')
@@ -74,6 +75,7 @@ end
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
 vmap('<Leader>y', '"+y')
+vmap('/', '"yy/<C-r>y<CR>')
 
 --Defined in keymaps.lua
 local function tmap(key, map)

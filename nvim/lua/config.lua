@@ -5,6 +5,26 @@ filetype indent on
 colorscheme monokai
 autocmd FocusLost,WinEnter,WinLeave * silent! update
 autocmd FileType go set noexpandtab
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function GoToJson() range abort
+  " TODO Make this work for values larger than two aka `ThreeTimesField int`
+  let currline = a:firstline
+  while currline <= a:lastline
+    if getline(currline) =~# '\v(.*(<\u+>).*)'
+      execute currline . 's/\v(.*(<\u+>).*)/\1 `json:"\L\2"`/e'
+    else
+      execute currline . 's/\v(.*(<\u\w+).*)/\1 `json:"\l\2"`/e'
+    endif
+    execute currline . 's/\v(`json:"\l+)(\u+)(.*)/\1_\L\2\3/e'
+    let currline += 1
+  endwhile
+endfunction
 ]]
 
 local o = vim.opt
@@ -57,13 +77,5 @@ o.wildmenu = true
 o.completeopt = 'menu,menuone,noselect'
 o.updatetime = 100
 
-vim.cmd [[
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-au BufWinEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
-au BufWinLeave * call clearmatches()
-]]
 -- o.smartindent = true
 -- o.cindent = true

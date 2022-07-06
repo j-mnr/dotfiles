@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -35,7 +36,7 @@ export FZF_DEFAULT_COMMAND="find . ! -path '*node_modules*' -a ! -path '*venv*' 
 reset='\[\e[0m\]'
 b_brown='\[\e[1;33m\]'
 u_purple='\[\e[4;35m\]'
-PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
+PS1="${u_purple}\A${reset} ${b_brown}\w\n${reset}"
 
 . "$XDG_CONFIG_HOME/bash/alias"
 . "$XDG_CONFIG_HOME/bash/.secret"
@@ -43,5 +44,6 @@ PS1="${b_brown}\w${reset}\n${u_purple}\A${reset} "
 . "$XDG_CONFIG_HOME/bash/gsdk.completion"
 
 eval "$(direnv hook bash)"
+task list
 # journalctl -b -p warning
 # :w !sudo tee %
