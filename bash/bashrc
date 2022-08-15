@@ -6,7 +6,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/gcloud/bin:$XDG_DATA_HOME/lua/bin/"
+export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/npm/bin:$XDG_DATA_HOME/gcloud/bin:$XDG_DATA_HOME/lua/bin/"
 
 export SUDO_ASKPASS=/usr/lib/ssh/ssh-askpass
 

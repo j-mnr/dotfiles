@@ -22,7 +22,7 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-c>'] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<S-Tab>'] = function(fallback)
       return cmp.visible() and cmp.select_prev_item() or fallback()
     end,
@@ -65,7 +65,7 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { buffer = 0 }
-for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'tsserver', 'emmet_ls' } do
+for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'tsserver', 'emmet_ls', 'eslint', 'tsserver', 'tailwindcss' } do
   local settings = {}
   if lsp == 'sumneko_lua' then
     settings = {

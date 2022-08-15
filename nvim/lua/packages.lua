@@ -43,6 +43,7 @@ require 'packer'.startup(function()
   }
   use 'kyazdani42/nvim-web-devicons'
   use 'chrisbra/Colorizer'
+  use 'fatih/vim-go'
 end)
 
 vim.cmd "packadd cfilter"

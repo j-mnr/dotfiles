@@ -4,7 +4,6 @@ alias p='pacman --color=auto'
 alias sp='sudo pacman -S --noconfirm'
 
 alias cat='cat -s'
-alias docker='sudo docker'
 alias diff='diff --color=auto -u'
 alias du='du -h'
 alias df='df -h'
@@ -20,7 +19,8 @@ alias xp='xsel -ob'
 alias .1='cd ..'
 alias .2='cd ../..'
 alias playtime='cd ~/src/go/playground && vim main.go'
-alias vimconf='vim .config/nvim/init.lua'
+alias vimconf='vim ~/.config/nvim/init.lua'
+alias yaegi='rlwrap yaegi'
 
 alias g='git'
 lazy() { eval "git add -A && git commit --allow-empty-message --date='$(date)' -C HEAD && git push"; }

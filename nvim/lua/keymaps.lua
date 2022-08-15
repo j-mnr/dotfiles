@@ -77,8 +77,12 @@ vmap('K', ":m '<-2<CR>gv=gv")
 vmap('<Leader>y', '"+y')
 vmap('/', '"yy/<C-r>y<CR>')
 
---Defined in keymaps.lua
+-- Defined in keymaps.lua
 local function tmap(key, map)
   keymap('t', key, map, opts)
 end
 tmap('\\\\', '<C-\\><C-n>')
+tmap('\\h', '<C-\\><C-n><C-w>h')
+tmap('\\j', '<C-\\><C-n><C-w>j')
+tmap('\\k', '<C-\\><C-N><C-w>k')
+tmap('\\l', '<C-\\><C-n><C-w>l')

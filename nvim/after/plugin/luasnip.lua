@@ -20,15 +20,22 @@ ls.add_snippets(nil, {
     ls.parser.parse_snippet('expand', '-- this is what was expanded!'),
   },
   go = {
-    ls.parser.parse_snippet('pln', 'fmt.Println($0)'),
-    ls.parser.parse_snippet('pf', 'fmt.Printf($0)'),
+    ls.parser.parse_snippet('fln', 'fmt.Println($0)'),
+    ls.parser.parse_snippet('ff', 'fmt.Printf($0)'),
+    -- TODO(jay): Expand this out to return option as well
     ls.parser.parse_snippet('lf', 'log.Fatal(err)'),
     ls.parser.parse_snippet('er', 'if err != nil {\n\tlog.Fatal(err)\n}\n$0'),
-    ls.parser.parse_snippet('pkgmain', 'package main\n\nfunc main() {\n\t$0\n}')
+    ls.parser.parse_snippet('pkgmain', 'package main\n\nfunc main() {\n\t$0\n}'),
+    -- Require snippets
+    ls.parser.parse_snippet('rnerr', 'require.NoError(t, err)'),
+    ls.parser.parse_snippet('rnem', 'require.NotEmpty(t, $0)'),
+    ls.parser.parse_snippet('rnz', 'require.NotZero(t, $0)'),
+    ls.parser.parse_snippet('re', 'require.Equal(t, $0)'),
+    ls.parser.parse_snippet('rwd', 'require.WithinDuration(t, $1, $2, $3)'),
   },
   java = {
     ls.parser.parse_snippet('psvm', 'public static void main(String[] args) {\n  $0\n}'),
-    ls.parser.parse_snippet('pln', 'System.out.println($0);'),
+    ls.parser.parse_snippet('sout', 'System.out.println($0);'),
   }
 })
 

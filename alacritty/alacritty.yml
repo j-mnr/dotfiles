@@ -14,10 +14,10 @@ font:
   bold_italic:
     family: Source Code Pro
     style: BoldIt
-  size: 11
+  size: 10
   offset:
-    x: -2
-    y: -3
+    x: -3
+    y: -4
 
 draw_bold_text_with_bright_colors: true
 

@@ -22,6 +22,7 @@ bindsym $mod+w exec --no-startup-id $BROWSER
 bindsym $mod+t exec --no-startup-id $TERMINAL -e htop
 bindsym $mod+y exec --no-startup-id i3lock --color 000000
 bindsym $mod+m exec --no-startup-id mpv --ytdl-format=best[height=720] --gapless-audio=yes $(xsel -ob)
+bindsym $mod+e exec --no-startup-id rofimoji
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -103,6 +104,6 @@ bar {
 exec_always --no-startup-id autotiling
 exec --no-startup-id hsetroot -solid "#000000"
 exec --no-startup-id picom -b
-exec --no-startup-id xset r rate 180 70
+exec --no-startup-id xset r rate 120 70
 exec --no-startup-id $TERMINAL -e htop
 

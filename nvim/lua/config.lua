@@ -3,14 +3,15 @@ syntax enable
 filetype plugin on
 filetype indent on
 colorscheme monokai
-autocmd FocusLost,WinEnter,WinLeave * silent! update
+autocmd FocusLost,BufEnter,BufLeave,WinEnter,WinLeave * silent! update
 autocmd FileType go set noexpandtab
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+let g:go_metalinter_autosave = 1
 
 function GoToJson() range abort
   " TODO Make this work for values larger than two aka `ThreeTimesField int`
@@ -26,6 +27,13 @@ function GoToJson() range abort
   endwhile
 endfunction
 ]]
+
+vim.api.nvim_create_autocmd(
+  { 'BufWinEnter', 'InsertEnter', 'InsertLeave', 'BufWinLeave' }, {
+  group = vim.api.nvim_create_augroup('whaitspace', { clear = true }),
+  pattern = '*',
+  command = 'match ExtraWhitespace /\\s\\+$/'
+})
 
 local o = vim.opt
 -- Global config
