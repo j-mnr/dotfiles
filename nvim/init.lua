@@ -22,7 +22,7 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<C-c>'] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-q>'] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<S-Tab>'] = function(fallback)
       return cmp.visible() and cmp.select_prev_item() or fallback()
     end,
