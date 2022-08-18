@@ -1,7 +1,7 @@
 set $mod Mod1
 
 default_border none
-font pango: source code pro 14
+font pango: source code pro 10
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8% && $refresh_i3status
@@ -16,10 +16,10 @@ bindsym Print exec --no-startup-id flameshot gui
 floating_modifier $mod
 
 # efns -- not in use yet
-bindsym $mod+d exec --no-startup-id $TERMINAL -e alsamixer
-bindsym $mod+a exec --no-startup-id $TERMINAL
+bindsym $mod+d exec --no-startup-id WINIT_X11_SCALE_FACTOR=1.66 $TERMINAL -e alsamixer
+bindsym $mod+a exec --no-startup-id WINIT_X11_SCALE_FACTOR=1.66 $TERMINAL
 bindsym $mod+w exec --no-startup-id $BROWSER
-bindsym $mod+t exec --no-startup-id $TERMINAL -e htop
+bindsym $mod+t exec --no-startup-id WINIT_X11_SCALE_FACTOR=1.66 $TERMINAL -e htop
 bindsym $mod+y exec --no-startup-id i3lock --color 000000
 bindsym $mod+m exec --no-startup-id mpv --ytdl-format=best[height=720] --gapless-audio=yes $(xsel -ob)
 bindsym $mod+e exec --no-startup-id rofimoji
@@ -50,26 +50,37 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "0"
 
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output HDMI-A-0 primary
+workspace $ws7 output HDMI-A-0 primary
+workspace $ws8 output HDMI-A-0 primary
+workspace $ws9 output HDMI-A-0 primary
+workspace $ws0 output HDMI-A-0 primary
+
 bindsym $mod+z workspace number $ws1
 bindsym $mod+x workspace number $ws2
 bindsym $mod+c workspace number $ws3
 bindsym $mod+v workspace number $ws4
-bindsym $mod+u workspace number $ws5
-bindsym $mod+i workspace number $ws6
-bindsym $mod+o workspace number $ws7
-bindsym $mod+p workspace number $ws8
-bindsym $mod+b workspace number $ws9
+bindsym $mod+b workspace number $ws5
+bindsym $mod+u workspace number $ws6
+bindsym $mod+i workspace number $ws7
+bindsym $mod+o workspace number $ws8
+bindsym $mod+p workspace number $ws9
 bindsym $mod+g workspace number $ws0
 
 bindsym $mod+Shift+z move container to workspace number $ws1
 bindsym $mod+Shift+x move container to workspace number $ws2
 bindsym $mod+Shift+c move container to workspace number $ws3
 bindsym $mod+Shift+v move container to workspace number $ws4
-bindsym $mod+Shift+u move container to workspace number $ws5
-bindsym $mod+Shift+i move container to workspace number $ws6
-bindsym $mod+Shift+o move container to workspace number $ws7
-bindsym $mod+Shift+p move container to workspace number $ws8
-bindsym $mod+Shift+b move container to workspace number $ws9
+bindsym $mod+Shift+b move container to workspace number $ws5
+bindsym $mod+Shift+u move container to workspace number $ws6
+bindsym $mod+Shift+i move container to workspace number $ws7
+bindsym $mod+Shift+o move container to workspace number $ws8
+bindsym $mod+Shift+p move container to workspace number $ws9
 bindsym $mod+Shift+g move container to workspace number $ws0
 
 mode "resize" {

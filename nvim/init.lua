@@ -65,7 +65,7 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts = { buffer = 0 }
-for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'tsserver', 'emmet_ls', 'eslint', 'tsserver', 'tailwindcss' } do
+for _, lsp in pairs { 'gopls', 'sumneko_lua', 'pylsp', 'bashls', 'clangd', 'emmet_ls', 'eslint', 'tsserver', 'tailwindcss', 'cssls', } do
   local settings = {}
   if lsp == 'sumneko_lua' then
     settings = {
