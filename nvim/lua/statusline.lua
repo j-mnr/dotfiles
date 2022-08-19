@@ -6,10 +6,10 @@ local modes = {
   ['no'] = 'N·P',
   ['v']  = '👁️',
   ['V']  = '🚃',
-  [''] = '🚧',
+  ['']  = '🚧',
   ['s']  = 'S',
   ['S']  = 'S·L',
-  [''] = 'S·B',
+  ['']  = 'S·B',
   ['i']  = '🪲',
   ['ic'] = '🪲',
   ['R']  = '😎',
@@ -32,7 +32,7 @@ end
 local function filepath()
   local fpath = fn.fnamemodify(fn.expand '%', ':~:.:h')
   if fpath == '' or fpath == '.' then
-      return ' '
+    return ' '
   end
 
   return string.format(' %%<%s/', fpath)
@@ -41,7 +41,7 @@ end
 local function filename()
   local fname = fn.expand '%:t'
   if fname == '' then
-      return ''
+    return ''
   end
   return fname .. ' '
 end
@@ -84,7 +84,7 @@ local function filetype()
   local icon = require('nvim-web-devicons').get_icon(
     file_name,
     file_ext,
-  { default = true })
+    { default = true })
 
   local ft = vim.bo.filetype
 
@@ -120,14 +120,14 @@ local vcs = function()
     removed = ""
   end
   return table.concat {
-     " ",
-     added,
-     changed,
-     removed,
-     " ",
-     "%#LineNr# ",
-     git_info.head,
-     " %#Normal#",
+    " ",
+    added,
+    changed,
+    removed,
+    " ",
+    "%#LineNr# ",
+    git_info.head,
+    " %#Normal#",
   }
 end
 
@@ -152,7 +152,7 @@ local function modified()
   end
 end
 
-Statusline.active = function ()
+Statusline.active = function()
   return table.concat {
     '%#Statusline#',
     mode(),
@@ -165,7 +165,7 @@ Statusline.active = function ()
     lsp(),
     '%=',
     colors.green,
-    os.date"[%H:%M] ",
+    os.date "[%H:%M] ",
     colors.orange,
     vim.bo.fileformat .. ' ',
     vim.bo.fileencoding,
@@ -184,11 +184,19 @@ function Statusline.short()
   return '%#StatusLineNC#   NvimTree'
 end
 
-vim.cmd [[
-  augroup Statusline
-  au!
-  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
-  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
-  au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
-  augroup END
-]]
+local sl = vim.api.nvim_create_augroup('statusline', {})
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', }, {
+  group = sl,
+  pattern = { '*' },
+  command = 'setlocal statusline=%!v:lua.Statusline.active()',
+})
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave', }, {
+  group = sl,
+  pattern = { '*' },
+  command = 'setlocal statusline=%!v:lua.Statusline.inactive()',
+})
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'FileType', }, {
+  group = sl,
+  pattern = { 'NvimTree' },
+  command = 'setlocal statusline=%!v:lua.Statusline.short()',
+})
