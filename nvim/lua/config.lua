@@ -1,19 +1,5 @@
 vim.cmd [[
-syntax enable
-filetype plugin on
-filetype indent on
-colorscheme monokai
-autocmd FocusLost,BufEnter,BufLeave,WinEnter,WinLeave * silent! update
-autocmd FileType go set noexpandtab
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-let g:go_metalinter_autosave = 1
-
-function GoToJson() range abort
+function! GoToJson() range abort
   " TODO Make this work for values larger than two aka `ThreeTimesField int`
   let currline = a:firstline
   while currline <= a:lastline
@@ -29,11 +15,30 @@ endfunction
 ]]
 
 vim.api.nvim_create_autocmd(
-  { 'BufWinEnter', 'InsertEnter', 'InsertLeave', 'BufWinLeave' }, {
-  group = vim.api.nvim_create_augroup('whaitspace', { clear = true }),
-  pattern = '*',
-  command = 'match ExtraWhitespace /\\s\\+$/'
+  { 'FocusLost', 'BufWinLeave', 'BufLeave', 'WinLeave', 'TabLeave' }, {
+  group = vim.api.nvim_create_augroup('saveOnLoseFocus', {}),
+  pattern = { '*' },
+  command = 'silent! update'
 })
+
+local ws = vim.api.nvim_create_augroup('whitespace', {})
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'InsertLeave' }, {
+  group = ws,
+  pattern = { '*' },
+  command = 'match NvimInternalError /\\s\\+$/',
+})
+vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+  group = ws,
+  pattern = { '*' },
+  command = 'match NvimInternalError /\\s\\+\\%#\\@<!$/',
+})
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  group = ws,
+  pattern = { '*' },
+  command = 'call clearmatches()',
+})
+
+vim.api.nvim_set_var('go_metalinter_autosave', 1)
 
 local o = vim.opt
 -- Global config
@@ -73,7 +78,6 @@ o.list = true
 o.listchars = 'space:·,tab:> ,trail:-,extends:>,precedes:<'
 o.showmatch = true
 o.lazyredraw = true
-
 -- Searching
 o.incsearch = true
 o.ignorecase = true
