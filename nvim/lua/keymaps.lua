@@ -65,6 +65,10 @@ nmap('<Leader><CR>', '<Cmd>7sp<CR><Cmd>term<CR>i')
 nmap('U', '<C-r>')
 nmap('<Leader>v', '<C-v>')
 nmap('<Leader>+', '"+P')
+-- vim-go
+nmap('<Leader><Leader>d', '<Cmd>GoDebug<CR>')
+nmap('<Leader><Leader>ta', '<Cmd>GoTest<CR>')
+nmap('<Leader><Leader>tf', '<Cmd>GoTestFunc<CR>')
 -- TODO
 nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('<Leader>ra', ':%s/\\<\\(<C-r><C-w>\\)\\>/')
