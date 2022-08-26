@@ -115,6 +115,6 @@ bar {
 exec_always --no-startup-id autotiling
 exec --no-startup-id hsetroot -solid "#000000"
 exec --no-startup-id picom -b
-exec --no-startup-id xset r rate 120 70
+exec --no-startup-id xset r rate 160 70
 exec --no-startup-id $TERMINAL -e htop
 
