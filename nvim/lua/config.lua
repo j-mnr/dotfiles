@@ -4,6 +4,11 @@ vim.api.nvim_create_autocmd(
   pattern = { '*' },
   command = 'silent! update'
 })
+vim.api.nvim_create_autocmd(
+  { 'TextYankPost' }, {
+  pattern = { '*' },
+  command = 'silent! lua vim.highlight.on_yank { timeout = 250 }',
+})
 
 local ws = vim.api.nvim_create_augroup('whitespace', {})
 vim.api.nvim_create_autocmd({ 'BufWinEnter', 'InsertLeave' }, {
@@ -33,7 +38,7 @@ o.undodir = '/tmp'
 o.autowriteall = true
 o.autoread = true
 o.gdefault = true
-o.virtualedit = 'all'
+o.virtualedit = { 'onemore', 'block' }
 -- Windows
 o.splitright = true
 o.splitbelow = true
