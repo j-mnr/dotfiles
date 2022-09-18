@@ -27,8 +27,6 @@ vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
   command = 'call clearmatches()',
 })
 
-vim.api.nvim_set_var('go_metalinter_autosave', 1)
-
 local o = vim.opt
 -- Global config
 o.compatible = false
