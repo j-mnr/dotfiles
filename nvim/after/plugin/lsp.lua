@@ -13,6 +13,14 @@ for _, lsp in pairs {
  'cssls',
  } do
   local settings = {}
+  if lsp == 'gopls' then
+    settings = {
+      gopls = {
+        gofumpt = true,
+      },
+    }
+  end
+
   if lsp == 'sumneko_lua' then
     settings = {
       Lua = {
@@ -22,6 +30,7 @@ for _, lsp in pairs {
       }
     }
   end
+
   require 'lspconfig'[lsp].setup {
     capabilities = capabilities,
     on_attach = function()
