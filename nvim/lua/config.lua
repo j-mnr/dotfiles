@@ -70,9 +70,8 @@ vim.api.nvim_set_var('go_metalinter_enabled', {
   'revive',
   'staticcheck',
   -- module: Good no need -- 'depguard', 'gomoddirectives', 'gomodguard'
-  -- performance: ALL
+  -- performance:
   'bodyclose',
-  -- 'maligned', REPLACED 'https://pkg.go.dev/golang.org/x/tools@v0.1.12/go/analysis/passes/fieldalignment/cmd/fieldalignment'
   'noctx',
   'prealloc',
   -- sql: ALL
@@ -81,9 +80,32 @@ vim.api.nvim_set_var('go_metalinter_enabled', {
   'sqlclosecheck',
   -- style:
   'errname',
-  -- TODO(jay): The rest of these
   'containedctx',
-  -- 'dogsled', 'dupl', 'exhaustivestruct', 'exhaustruct', 'forbidigo', 'forcetypeassert', 'gochecknoglobals', 'gochecknoinits', 'goconst', 'goheader', 'golint', 'gomnd', 'goprintffuncname', 'gosimple', 'grouper', 'ifshort', 'importas', 'interfacer', 'ireturn', 'lll',  'nakedret', 'nilnil', 'nlreturn', 'nolintlint', 'nonamedreturns', 'nosnakecase', 'nosprintfhostport', 'predeclared', 'promlinter', 'stylecheck', 'tagliatelle', 'tenv', 'testpackage', 'thelper', 'unconvert', 'usestdlibvars', 'varnamelen', 'wastedassign', 'whitespace', 'wrapcheck', 'wsl'
+  'dogsled',
+  'forbidigo',
+  'forcetypeassert',
+  'goconst',
+  'gomnd',
+  'goprintffuncname',
+  'gosimple',
+  'ifshort',
+  'ireturn',
+  'lll',
+  'nakedret',
+  'nilnil',
+  'nolintlint',
+  'nosnakecase',
+  'nosprintfhostport',
+  'predeclared',
+  'stylecheck',
+  'tagliatelle',
+  'tenv',
+  'thelper',
+  'unconvert',
+  'usestdlibvars',
+  'varnamelen',
+  'wastedassign',
+  'whitespace',
   -- test:
   'paralleltest',
   'testpackage',
@@ -94,7 +116,24 @@ vim.api.nvim_set_var('go_metalinter_enabled', {
   'structcheck',
   'unparam',
   'unused',
-  'varcheck'
+  'varcheck',
+  -- not a fan of:
+  -- 'dupl',
+  -- 'exhaustivestruct'
+  -- 'exhauststruct'
+  -- 'maligned', REPLACED 'https://pkg.go.dev/golang.org/x/tools@v0.1.12/go/analysis/passes/fieldalignment/cmd/fieldalignment'
+  -- -style:
+  -- 'gochecknoglobals',
+  -- 'gochecknoinits',
+  -- 'goheader',
+  -- 'golint',
+  -- 'grouper',
+  -- 'importas', seems good but needs config
+  -- 'interfacer',
+  -- 'nlreturn',
+  -- 'nonamedreturns',
+  -- 'promlinter',
+  -- 'wsl',
 })
 
 local o = vim.opt
