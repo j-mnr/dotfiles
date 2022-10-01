@@ -103,7 +103,6 @@ vim.api.nvim_set_var('go_metalinter_enabled', {
   'thelper',
   'unconvert',
   'usestdlibvars',
-  'varnamelen',
   'wastedassign',
   'whitespace',
   -- test:
@@ -133,6 +132,7 @@ vim.api.nvim_set_var('go_metalinter_enabled', {
   -- 'nlreturn',
   -- 'nonamedreturns',
   -- 'promlinter',
+  -- 'varnamelen',
   -- 'wsl',
 })
 

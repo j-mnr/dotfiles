@@ -24,10 +24,11 @@
 	unstage = restore --staged .
 	wt = worktree
 	wtaddfetch = +refs/heads/*:refs/remotes/origin/*
-
 [fetch]
 	prune = true
 [mergetool]
 	keepBackup = false
 [merge]
 	tool = nvimdiff
+[diff]
+	tool = difft

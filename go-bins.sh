@@ -13,6 +13,7 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &
 go install github.com/kyleconroy/sqlc/cmd/sqlc@latest &
 go install github.com/golang/mock/mockgen@latest &
 go install github.com/traefik/yaegi/cmd/yaegi@latest &
+go install github.com/wtetsu/gaze/cmd/gaze@latest &
 # From vim-go &
 go install golang.org/x/tools/cmd/guru@master &
 go install github.com/davidrjenni/reftools/cmd/fillstruct@master &
@@ -24,8 +25,8 @@ go install github.com/koron/iferr@master &
 go install github.com/jstemmer/gotags@master &
 go install github.com/josharian/impl@master &
 go install golang.org/x/tools/cmd/goimports@master &
-go install github.com/golangci/golangci-lint/cmd/ &
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest &
 go install github.com/fatih/gomodifytags@latest &
 go install honnef.co/go/tools/cmd/keyify@master &
-go install honnef.co/go/tools/cmd/staticcheck@lates &
+go install honnef.co/go/tools/cmd/staticcheck@latest &
 go install github.com/klauspost/asmfmt/cmd/asmfmt@latest &

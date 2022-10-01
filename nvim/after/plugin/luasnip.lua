@@ -25,7 +25,8 @@ ls.add_snippets(nil, {
     -- TODO(jay): Expand this out to return option as well
     ls.parser.parse_snippet('lf', 'log.Fatal(err)'),
     ls.parser.parse_snippet('er', 'if err != nil {\n\tlog.Fatal(err)\n}\n$0'),
-    ls.parser.parse_snippet('pkgmain', 'package main\n\nfunc main() {\n\t$0\n}'),
+    ls.parser.parse_snippet('main', 'package main\n\nfunc main() {\n\t$0\n}'),
+    ls.parser.parse_snippet('ex', 'func Example$0() {\n\t// Output:\n\t//\n}'),
     -- Require snippets
     ls.parser.parse_snippet('rnerr', 'require.NoError(t, err)'),
     ls.parser.parse_snippet('rnem', 'require.NotEmpty(t, $0)'),
