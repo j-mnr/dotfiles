@@ -15,28 +15,24 @@ ls.config.set_config {
   },
 }
 
+local snip = ls.parser.parse_snippet
 ls.add_snippets(nil, {
   all = {
-    ls.parser.parse_snippet('expand', '-- this is what was expanded!'),
+    snip('expand', '-- this is what was expanded!'),
   },
   go = {
-    ls.parser.parse_snippet('fln', 'fmt.Println($0)'),
-    ls.parser.parse_snippet('ff', 'fmt.Printf($0)'),
+    snip('fln', 'fmt.Println($0)'),
+    snip('ff', 'fmt.Printf($0)'),
     -- TODO(jay): Expand this out to return option as well
-    ls.parser.parse_snippet('lf', 'log.Fatal(err)'),
-    ls.parser.parse_snippet('er', 'if err != nil {\n\tlog.Fatal(err)\n}\n$0'),
-    ls.parser.parse_snippet('main', 'package main\n\nfunc main() {\n\t$0\n}'),
-    ls.parser.parse_snippet('ex', 'func Example$0() {\n\t// Output:\n\t//\n}'),
-    -- Require snippets
-    ls.parser.parse_snippet('rnerr', 'require.NoError(t, err)'),
-    ls.parser.parse_snippet('rnem', 'require.NotEmpty(t, $0)'),
-    ls.parser.parse_snippet('rnz', 'require.NotZero(t, $0)'),
-    ls.parser.parse_snippet('re', 'require.Equal(t, $0)'),
-    ls.parser.parse_snippet('rwd', 'require.WithinDuration(t, $1, $2, $3)'),
+    snip('lf', 'log.Fatal(err)'),
+    snip('er', 'if err != nil {\n\tlog.Fatal(err)\n}\n$0'),
+    snip('main', 'package main\n\nfunc main() {\n\t$0\n}'),
+    snip('ex', 'func Example$0() {\n\t// Output:\n\t//\n}'),
+    snip('wrap', 'fmt.Errorf("$0: %w", err)'),
   },
   java = {
-    ls.parser.parse_snippet('psvm', 'public static void main(String[] args) {\n  $0\n}'),
-    ls.parser.parse_snippet('sout', 'System.out.println($0);'),
+    snip('psvm', 'public static void main(String[] args) {\n  $0\n}'),
+    snip('sout', 'System.out.println($0);'),
   }
 })
 
