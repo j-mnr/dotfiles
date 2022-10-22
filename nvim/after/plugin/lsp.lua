@@ -1,17 +1,18 @@
-local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require 'cmp_nvim_lsp'.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local opts = { buffer = 0 }
 for _, lsp in pairs {
   'gopls',
- 'sumneko_lua',
- 'pylsp',
- 'bashls',
- 'clangd',
- 'emmet_ls',
- 'eslint',
- 'tsserver',
- 'tailwindcss',
- 'cssls',
- } do
+  'sumneko_lua',
+  'pylsp',
+  'bashls',
+  'clangd',
+  'emmet_ls',
+  'eslint',
+  'tsserver',
+  'tailwindcss',
+  'cssls',
+} do
   local settings = {}
   if lsp == 'gopls' then
     settings = {

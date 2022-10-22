@@ -23,14 +23,14 @@ require 'packer'.startup(function()
   -- No Comment... 😹
   use {
     'numToStr/Comment.nvim',
-    config = function () require 'Comment'.setup() end,
+    config = function() require 'Comment'.setup() end,
   }
   use 'tpope/vim-surround'
   -- Colorscheme and goodies
   use 'nvim-treesitter/nvim-treesitter'
   use {
     'tanvirtin/monokai.nvim',
-    config = function ()
+    config = function()
       local palette = require 'monokai'.classic
       require 'monokai'.setup {
         custom_hlgroups = {
@@ -38,7 +38,7 @@ require 'packer'.startup(function()
             fg = palette.purple,
           },
         },
-    }
+      }
     end
   }
   use 'kyazdani42/nvim-web-devicons'

@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd(
-  { 'FocusLost', 'BufWinLeave', 'BufLeave', 'WinLeave', 'TabLeave' }, {
+  { 'FocusLost', --[[ 'BufWinLeave', ]] 'BufLeave', 'WinLeave', 'TabLeave' }, {
   group = vim.api.nvim_create_augroup('saveOnLoseFocus', {}),
   pattern = { '*' },
   command = 'silent! update'
@@ -168,12 +168,14 @@ o.signcolumn = 'yes'
 o.cursorline = true
 o.showcmd = true
 o.laststatus = 2
-o.textwidth = 79
+o.textwidth = 90
 o.colorcolumn = '+1'
 o.list = true
 o.listchars = 'space:·,tab:> ,trail:-,extends:>,precedes:<'
 o.showmatch = true
 o.lazyredraw = true
+o.scrolloff = 999
+o.sidescrolloff = 999
 -- Searching
 o.incsearch = true
 o.ignorecase = true

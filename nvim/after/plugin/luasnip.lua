@@ -22,13 +22,14 @@ ls.add_snippets(nil, {
   },
   go = {
     snip('fln', 'fmt.Println($0)'),
-    snip('ff', 'fmt.Printf($0)'),
+    snip('ff', 'fmt.Printf("%v\\n", $0)'),
     -- TODO(jay): Expand this out to return option as well
     snip('lf', 'log.Fatal(err)'),
     snip('er', 'if err != nil {\n\tlog.Fatal(err)\n}\n$0'),
     snip('main', 'package main\n\nfunc main() {\n\t$0\n}'),
-    snip('ex', 'func Example$0() {\n\t// Output:\n\t//\n}'),
+    snip('ex', 'func Example$0() {\n\t// Output:\n}\n'),
     snip('wrap', 'fmt.Errorf("$0: %w", err)'),
+    snip('todo', '// TODO(jay): $0'),
   },
   java = {
     snip('psvm', 'public static void main(String[] args) {\n  $0\n}'),

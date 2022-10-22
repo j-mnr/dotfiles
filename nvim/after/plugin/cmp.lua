@@ -27,6 +27,10 @@ cmp.setup {
   }, {
     { name = 'buffer' },
   }),
+  performance = {
+    debounce = 400,
+    throttle = 400,
+  }
 }
 
 -- Set configuration for specific filetype.
