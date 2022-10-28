@@ -29,16 +29,9 @@ require 'packer'.startup(function()
   -- Colorscheme and goodies
   use 'nvim-treesitter/nvim-treesitter'
   use {
-    'tanvirtin/monokai.nvim',
+    'bluz71/vim-nightfly-guicolors',
     config = function()
-      local palette = require 'monokai'.classic
-      require 'monokai'.setup {
-        custom_hlgroups = {
-          LineNr = {
-            fg = palette.purple,
-          },
-        },
-      }
+      vim.api.nvim_command 'colorscheme nightfly'
     end
   }
   use 'kyazdani42/nvim-web-devicons'

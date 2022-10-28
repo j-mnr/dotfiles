@@ -28,8 +28,7 @@ cmp.setup {
     { name = 'buffer' },
   }),
   performance = {
-    debounce = 400,
-    throttle = 400,
+    debounce = 350,
   }
 }
 

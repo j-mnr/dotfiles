@@ -102,6 +102,17 @@ local function lineinfo()
   return ' %l:%c %P'
 end
 
+local colors = {
+  purple = '%#NightflyViolet#',
+  blue = '%#NightflyBlue#',
+  green = '%#NightflyGreen#',
+  yellow = '%#NightflyYellow#',
+  orange = '%#NightflyOrange#',
+  red = '%#NightflyRed#',
+  gray = '%#NightflyEmerald#',
+  white = '%#NightflyWhiteAlert#',
+}
+
 local vcs = function()
   local git_info = vim.b.gitsigns_status_dict
   if not git_info or git_info.head == "" then
@@ -125,22 +136,12 @@ local vcs = function()
     changed,
     removed,
     " ",
-    "%#LineNr# ",
+    colors.purple,
+    " ",
     git_info.head,
     " %#Normal#",
   }
 end
-
-local colors = {
-  purple = '%#LineNr#',
-  blue = '%#TSConstant#',
-  green = '%#TSAnnotation#',
-  yellow = '%#TSCharacter#',
-  orange = '%#TSVariableBuiltin#',
-  red = '%#TSInclude#',
-  gray = '%#TSComment#',
-  white = '%#TSVariable#',
-}
 
 Statusline = {}
 

@@ -25,6 +25,7 @@ inoremap <silent>} <C-r>=Skip_closing('}')<CR>
 local function imap(key, map)
   keymap('i', key, map, opts)
 end
+
 imap('jj', '<Esc>')
 imap('(', '()<Left>')
 imap('[', '[]<Left>')
@@ -36,6 +37,7 @@ imap('{<CR>', '{<CR>}<C-o>O')
 local function nmap(key, map)
   keymap('n', key, map, opts)
 end
+
 -- Move to window
 nmap('<Leader>k', '<C-w><C-k>')
 nmap('<Leader>j', '<C-w><C-j>')
@@ -79,6 +81,7 @@ nmap('<Leader>ra', ':%s/\\<\\(<C-r><C-w>\\)\\>/')
 local function vmap(key, map)
   keymap('v', key, map, opts)
 end
+
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
 vmap('<Leader>y', '"+y')
@@ -88,6 +91,7 @@ vmap('/', '"yy/<C-r>y<CR>')
 local function tmap(key, map)
   keymap('t', key, map, opts)
 end
+
 tmap('\\\\', '<C-\\><C-n>')
 tmap('\\h', '<C-\\><C-n><C-w>h')
 tmap('\\j', '<C-\\><C-n><C-w>j')
