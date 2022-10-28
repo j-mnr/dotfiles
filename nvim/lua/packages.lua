@@ -28,6 +28,16 @@ require 'packer'.startup(function()
   use 'tpope/vim-surround'
   -- Colorscheme and goodies
   use 'nvim-treesitter/nvim-treesitter'
+  -- Come back to this one day.
+  -- use {
+  --   'tanvirtin/monokai.nvim',
+  --   config = function()
+  --     local palette = require 'monokai'.classic
+  --     require 'monokai'.setup {
+  --       custom_hlgroups = { LineNr = { fg = palette.purple, }, },
+  --     }
+  --   end
+  -- }
   use {
     'bluz71/vim-nightfly-guicolors',
     config = function()
