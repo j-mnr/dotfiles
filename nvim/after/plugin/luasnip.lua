@@ -30,6 +30,7 @@ ls.add_snippets(nil, {
     snip('ex', 'func Example$0() {\n\t// Output:\n}\n'),
     snip('wrap', 'fmt.Errorf("$0: %w", err)'),
     snip('todo', '// TODO(jay): $0'),
+    snip('anon', 'func() {\n\t$0\n}()'),
   },
   java = {
     snip('psvm', 'public static void main(String[] args) {\n  $0\n}'),
