@@ -186,6 +186,7 @@ o.wildmenu = true
 -- TODO put these somewhere
 o.completeopt = 'menu,menuone,noselect'
 o.updatetime = 100
+o.mouse = ''
 
 o.autoindent = true
 o.smartindent = true
