@@ -17,9 +17,6 @@ ls.config.set_config {
 
 local snip = ls.parser.parse_snippet
 ls.add_snippets(nil, {
-  all = {
-    snip('expand', '-- this is what was expanded!'),
-  },
   go = {
     snip('fln', 'fmt.Println($0)'),
     snip('ff', 'fmt.Printf("%v\\n", $0)'),
@@ -31,6 +28,7 @@ ls.add_snippets(nil, {
     snip('wrap', 'fmt.Errorf("$0: %w", err)'),
     snip('todo', '// TODO(jay): $0'),
     snip('anon', 'func() {\n\t$0\n}()'),
+    snip('pprof', 'pprofFile, pprofErr := os.Create("cpu.pprof")\nif pprofErr != nil {\n\tlog.Fatal(pprofErr)\n}\npprof.StartCPUProfile(pprofFile)\ndefer pprof.StopCPUProfile()')
   },
   java = {
     snip('psvm', 'public static void main(String[] args) {\n  $0\n}'),

@@ -14,6 +14,7 @@ go install github.com/kyleconroy/sqlc/cmd/sqlc@latest &
 go install github.com/golang/mock/mockgen@latest &
 go install github.com/traefik/yaegi/cmd/yaegi@latest &
 go install github.com/wtetsu/gaze/cmd/gaze@latest &
+go install github.com/sibprogrammer/xq@latest &
 # From vim-go &
 go install golang.org/x/tools/cmd/guru@master &
 go install github.com/davidrjenni/reftools/cmd/fillstruct@master &

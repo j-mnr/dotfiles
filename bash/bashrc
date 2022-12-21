@@ -28,7 +28,7 @@ export LESSHISTFILE=/dev/null
 export MANPAGER='nvim +Man!'
 export TERMINAL=alacritty
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER=brave
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:locus=01:quote=01'
 export FZF_DEFAULT_COMMAND="find . ! -path '*node_modules*' -a ! -path '*venv*' -a ! -path '*__pycache__*'"
