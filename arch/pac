@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 amd-ucode
 asciinema
@@ -26,8 +27,10 @@ docker
 docker-compose
 dunst
 efibootmgr
+entr
 fakeroot
 feh
+figlet
 firefox
 flameshot
 flex
@@ -40,7 +43,6 @@ gopls
 graphviz
 groff
 grub
-hq
 hsetroot
 htop
 hugo
@@ -48,6 +50,7 @@ i3-gaps
 i3blocks
 i3lock
 i3status
+imagemagick
 inotify-tools
 intel-ucode
 jadx
@@ -72,6 +75,7 @@ mdp
 mlocate
 mplayer
 mpv
+neovim
 networkmanager
 ninja
 nodejs
@@ -79,6 +83,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 otf-font-awesome
+p7zip
 patch
 picom
 pkgconf
@@ -91,6 +96,7 @@ python-pip
 python-pytest
 raylib
 revive
+ripgrep
 rlwrap
 rofi
 rofimoji
@@ -103,6 +109,8 @@ tinygo
 translate-shell
 tree
 ttf-joypixels
+ttf-nerd-fonts-symbols-1000-em-mono
+ttf-nerd-fonts-symbols-common
 typescript
 unicode-emoji
 unzip
@@ -116,6 +124,7 @@ vulkan-validation-layers
 wget
 which
 x11-ssh-askpass
+xdg-user-dirs
 xdotool
 xf86-input-evdev
 xf86-input-synaptics
