@@ -3,7 +3,7 @@ local capabilities = require 'cmp_nvim_lsp'.default_capabilities(vim.lsp.protoco
 local opts = { buffer = 0 }
 for _, lsp in pairs {
   'gopls',
-  'sumneko_lua',
+  'lua_ls',
   'pylsp',
   'bashls',
   'clangd',
@@ -22,7 +22,7 @@ for _, lsp in pairs {
     }
   end
 
-  if lsp == 'sumneko_lua' then
+  if lsp == 'lua_ls' then
     settings = {
       Lua = {
         diagnostics = {

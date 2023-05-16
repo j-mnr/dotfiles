@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd(
 local ws = vim.api.nvim_create_augroup('whitespace', {})
 vim.api.nvim_create_autocmd({ 'BufWinEnter', 'InsertLeave' }, {
   group = ws,
-  pattern = { '*' },
+  pattern = { '/*', './*', '~/*' },
   command = 'match NvimInternalError /\\s\\+$/',
 })
 vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
@@ -168,7 +168,7 @@ o.signcolumn = 'yes'
 o.cursorline = true
 o.showcmd = true
 o.laststatus = 2
-o.textwidth = 90
+o.textwidth = 100
 o.colorcolumn = '+1'
 o.list = true
 o.listchars = 'space:·,tab:> ,trail:-,extends:>,precedes:<'

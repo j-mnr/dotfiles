@@ -119,6 +119,10 @@ makepkg -is # --install --syncdeps
 xargs yay -S --needed --noconfirm < aur
 ```
 
+### Keyboard configuration
+
+https://github.com/zsa/wally/wiki/Linux-install
+
 ### System configurations
 
 Look into /etc/xdg/picom.conf, /etc/X11/xinit/xinitrc

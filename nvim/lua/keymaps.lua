@@ -77,6 +77,8 @@ nmap('<Leader>gdtf', '<Cmd>GoDebugTestFunc<CR>')
 -- TODO
 nmap('<Leader>/', '<Cmd>nohlsearch<CR>')
 nmap('<Leader>ra', ':%s/\\<\\(<C-r><C-w>\\)\\>/')
+nmap('gh', '<Cmd>diffget //2<CR>')
+nmap('gl', '<Cmd>diffget //3<CR>')
 
 local function vmap(key, map)
   keymap('v', key, map, opts)
